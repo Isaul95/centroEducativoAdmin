@@ -369,7 +369,7 @@ function llenarTablaProfesores() {
                                 a =`
                                 <a href="#" id="habilitar_profesor" class="btn btn-info" value="${row.id_profesores}"><i class="far fa-edit"></i></a>
                                    `;
-                            }else{
+                            }else if(horario != "null"||horario != "undefined"||horario==0){
                                 a= `¡Profesor sin horario asignado!`;
                             }
                             return a;

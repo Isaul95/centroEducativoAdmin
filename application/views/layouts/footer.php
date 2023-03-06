@@ -130,6 +130,8 @@ $('#btn_RegistroPago').DataTable( {
 <script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/PeriodoEscolar.js"></script>
 <!-- ===========================  Licenciatura =============================--->
 <script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/Carreras.js"></script>
+<!-- ===========================  Grados Grupos =============================--->
+<script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/GradosGrupos.js"></script>
 <!-- ===========================  Profesores =============================--->
 <script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/Profesores.js"></script>
 <!-- ===========================  Alumnos  =============================--->

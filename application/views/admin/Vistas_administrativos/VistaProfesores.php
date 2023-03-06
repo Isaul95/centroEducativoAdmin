@@ -459,8 +459,8 @@
             <!-- <th>Experiencia docente</th> -->
             <!-- <th>Trabajos ants.</th> -->
             <th class="text-center" width="7%">CV</th>
-            <!--<th>Activo/DesAct.</th>-->
-            <th>Horario</th>
+            <!--<th>Activo/DesAct.</th>
+            <th>Horario</th>-->
             <th class="text-center" width="7%">Habilitar</th>
             <th class="text-center" width="7%">Acciones</th>
             <th class="text-center" width="7%">Ficha completa</th>

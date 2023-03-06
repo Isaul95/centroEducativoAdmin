@@ -109,6 +109,8 @@
                             </li>
                           <li><a href="<?php echo base_url();?>Administrativos/Carreras">
                             <i class="far fa-dot-circle"></i> Carreras</a></li>
+                          <li><a href="<?php echo base_url();?>Administrativos/GradosGrupos">
+                            <i class="far fa-dot-circle"></i> Grado y grupo</a></li>
 
                           <li><a href="<?php echo base_url();?>Administrativos/Profesores">
                             <i class="far fa-dot-circle"></i> Maestros </a></li>
