@@ -1,4 +1,4 @@
-
+/*
   $(document).ready(function(){
         litarAlumnosConBaucherRegistrados();
         date_picker_parcialidad();
@@ -137,9 +137,9 @@ function Mostrar_PagoCompleto(){
 
 
     // LISTADO DE LA TABLA ALUMOS PARA HABILTAR DAR ACCESO A SU RECIBO Y ELEHIR MATERIAS
-      /* -------------------------------------------------------------------------- */
-      /*                      llenarTablaPagos Records                              */
-      /* -------------------------------------------------------------------------- */
+      / -------------------------------------------------------------------------- /
+      /                      llenarTablaPagos Records                              
+      / -------------------------------------------------------------------------- 
       function litarAlumnosConBaucherRegistrados(licenciatura,semestre,opciones,tipoPago) {
          console.log("Lista de alumnos con baucher...!");
           // debugger;
@@ -306,9 +306,9 @@ return a;
 
 
 
-      /* -------------------------------------------------------------------------- */
-      /*         llenarTabla Historial de pagos x parcialidades                     */
-      /* -------------------------------------------------------------------------- */
+      / -------------------------------------------------------------------------- /
+      /         llenarTabla Historial de pagos x parcialidades                     /
+      / -------------------------------------------------------------------------- /
       function litaHistorialParcialidadXAlumnos() {
         debugger;
         var datos = {
@@ -672,7 +672,7 @@ function modalCapturaDatosRecibo(id_alta_baucher_banco){
                     });
 
                 } else if (
-                  /* Read more about handling dismissals below */
+                  / Read more about handling dismissals below 
                   result.dismiss === Swal.DismissReason.cancel
                 ) {
                   swalWithBootstrapButtons.fire(
@@ -687,9 +687,9 @@ function modalCapturaDatosRecibo(id_alta_baucher_banco){
 
 
 
-    /* -------------------------------------------------------------------------- */
-    /*            DAR DE ALTA EL RECIBO DE PAGO FIRMADO Y SELLADO                 */
-    /* -------------------------------------------------------------------------- */
+    / -------------------------------------------------------------------------- /
+    /            DAR DE ALTA EL RECIBO DE PAGO FIRMADO Y SELLADO                 /
+    / -------------------------------------------------------------------------- /
     $(document).on("click", "#altaReciboValidado", function(e) {
         e.preventDefault();
         // debugger;
@@ -788,7 +788,7 @@ function modalCapturaDatosRecibo(id_alta_baucher_banco){
                       });
 
                   } else if (
-                    /* Read more about handling dismissals below */
+                    / Read more about handling dismissals below /
                     result.dismiss === Swal.DismissReason.cancel
                   ) {
                     swalWithBootstrapButtons.fire(
@@ -864,7 +864,7 @@ function habilitaRegistroFinanzas(estatus, numero_control,estado,detalle){
           var opciones = $("#combo_opcionesAltaAlumn_Finanzas").val();
           $("#tbl_listAlumConBaucher").DataTable().destroy();
           litarAlumnosConBaucherRegistrados(licenciatura,semestre,opciones,tipoPago);
-        */
+        /
           asignacion_masiva_de_alumnos(datos);
           // addDatoParaReciboPagoAlumno(id_alta_baucher_banco, numero_control, estatus);
         // validarBaucherPagoAlumno(id_alta_baucher_banco, numero_control, estatus, semestre);   // =========>>>>>  1.- ISAUL Se movio
@@ -1098,7 +1098,7 @@ $(document).on("click", "#regresarModAnterior33", function (e) {
         "last": "Último",
         "next": "Siguiente",
         "previous": "Anterior"
-      }, /* TODO ESTO ES PARA CAMBIAR DE IDIOMA */
+      }, /* TODO ESTO ES PARA CAMBIAR DE IDIOMA /
     }
 
 
@@ -1320,3 +1320,4 @@ $(document).on("click", "#regresarModAnterior33", function (e) {
     }
 
     new Converter();
+*/

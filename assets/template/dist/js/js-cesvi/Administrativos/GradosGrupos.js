@@ -1,13 +1,13 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     llenartablagradosgrupos(); // SEINICIALIZA LA FUNCTIO DE LA CARGA DEL LISTADO DE LA TABLA
     date_picker_carrera();
 });
-/* ---------------------------- Add periodo Modal --------------------------- */
+/* ---------------------------- Add periodo Modal --------------------------- /
 $("#modal_add_licenciatura").on("hide.bs.modal", function (e) {
     // do something...
     $("#addcarrera")[0].reset();
 });
-/* ---------------------------- Edit periodo Modal --------------------------- */
+/* ---------------------------- Edit periodo Modal --------------------------- /
 $("#modaleditcarrera").on("hide.bs.modal", function (e) {
     // do something...
     $("#formeditarcarrera")[0].reset();
@@ -193,7 +193,7 @@ var language_espaniol = {
         "last": "Último",
         "next": "Siguiente",
         "previous": "Anterior"
-    }, /* TODO ESTO ES PARA CAMBIAR DE IDIOMA */
+    }, / TODO ESTO ES PARA CAMBIAR DE IDIOMA /
 }
 function date_picker_carrera() {
     $("#datepicker_fecha_licenciatura,#datepicker_fecha_licenciatura_update").datepicker({
@@ -214,4 +214,4 @@ function date_picker_carrera() {
         yearSuffix: ''
     });
     $.datepicker.setDefaults($.datepicker.regional['es']);
-}
+}*/

@@ -3,7 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Modelo_HacerHorarioProfesor extends CI_Model { // INICIO DEL MODELO
 
-
+  public function vergradosgrupos23(){
+    $this->db->select("id_grado_grupo,nombre,descripcion");
+    $this->db->from("grado_grupo");
+    $resultados = $this->db->get();
+    return $resultados->result();
+    }
       	/* -------------------------------------------------------------------------- */
       	/*                                Fetch Records                               */
         /* -------------------------------------------------------------------------- */

@@ -6,26 +6,12 @@
 </head>
 <body>
 
-    <div class="content-wrapper colorfondo"> <!-- STAR ALL CONTENT -->
-            <!-- Content Header (Page header) -->
-      <!-- <section class="content-header">
-        <h1>
-              <center><strong><font color="#D34787">Lista de los pagos realizados ISAUL ==></font></strong></center>
-              <center><small><font color="#2F4D97" face="Comic Sans MS,arial,verdana">Menu cesvi</font></small></center>
-        </h1>
-        </section> -->
-
-
-
-            <!-- Main content -->
-            <section class="content">
-                <!-- Default box -->
-                <div class="box box-solid colorfondo">
-                    <div class="box-body">
-
-
-
-<!-- AKI EMPIEZA LOMMIOO LO NUEVO -->
+<div class="content-wrapper colorfondo"> <!-- STAR ALL CONTENT -->
+        <!-- Main content -->
+        <section class="content">
+            <!-- Default box -->
+            <div class="box box-solid colorfondo">
+                <div class="box-body">
 
 <div class="container">
   <div class="row">
@@ -41,20 +27,20 @@
   <div class="col-10 col-sm-12">
                   <div class="row">
                     <div class="col-4 col-sm-8">
-                      <label for="">Seleccione alguna carrera: </label>
-                    <select background-color="red" id="combo_carreras_alumnos_admin" class="form-control"><option value="" selected>Seleccione una carrera</option></select>
+                      <label for="">Seleccione grado y grupo: </label>
+                    <select background-color="red" id="combo_carreras_alumnos_admin" class="form-control"><option value="" selected>Seleccione una opción</option></select>
 
                     </div>
 
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                         <label for="">Semestre: </label>
                         <select background-color="red" id="combo_semestres_alumnos_admin" class="form-control"><option value="" selected>Seleccione un semestre</option></select>
-                    </div>
+                    </div-->
                   </div> <!--END OF SECOND ROW-->
     </div><!--class="col-10 col-sm-12"-->
   </div> <!--END OF FIRST ROW-->
                   <br>
- <div class="row">
+ <!--div class="row">
   <div class="col-10 col-sm-12">
                   <div class="row">
                     <div class="col-8 col-sm-6">
@@ -63,8 +49,8 @@
                     </div>
                   </div>
                   <br>
-    </div><!--class="col-10 col-sm-12"-->
-  </div> <!--END OF FIRST ROW-->
+    </div>
+  </div--> <!--END OF FIRST ROW-->
   <br>
   <div class="row">
     <div class="col-md-12">
@@ -72,7 +58,7 @@
           <div class="col-md-12">
       <?php if($permisos->insert == 1):?>
         <div class="d-flex flex-row">
-              <a type="button" class="btn btn-primary btn-float" data-toggle="modal" data-target="#modaladdalumno"> <span class="fa fa-plus"></span>  Agregar Alumno</a>
+              <a type="button" class="btn btn-primary btn-float" data-toggle="modal" data-target="#modaladdalumno"> <span class="fa fa-plus"></span>  Agregar Nuevo Alumno</a>
       </div>
               <?php endif;?>
           </div>
@@ -84,7 +70,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header bg-primary text-center">
-              <strong class="modal-title" id="exampleModalLabel">Agregar Alumno</strong>
+              <strong class="modal-title" id="exampleModalLabel">Agregar Alumno X</strong>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -127,6 +113,7 @@
                 </div>
               </div>
               <br>
+              <hr> <!-- Le da una linea sombreada para ver la divicion -->
             <div class="row">
               <div class="col-sm-12">
                 <label for="">Domicilio</label>
@@ -172,9 +159,9 @@
                     </div>
                   </div>
                   <br>
-                  <label for="">Estado civil y sexo</label>
+                  <!--label for="">Estado civil y sexo</label-->
                   <div class="row">
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                         <label for="">Estado civil</label>
                         <select background-color="red" id="estado_civil_alumno" class="form-select form-select-lg mb-3">
                         <option value="Soltero(a)">Soltero(a)</option>
@@ -182,31 +169,33 @@
                         <option value="Divorciado(a)">Divorciado(a)</option>
                         <option value="Viudo(a)">Viudo(a)</option>
                         </select>
-                    </div>
+                    </div-->
                       <div class="col-4 col-sm-6">
                               <label for="">Sexo</label>
-                              <select background-color="red" id="sexo_alumno" class="form-select form-select-lg mb-3">
+                              <select background-color="red" id="sexo_alumno" class="form-control">
                               <option value="Masculino">Masculino</option>
                               <option value="Femenino">Femenino</option>
                               </select>
                      </div>
                   </div>
                   <br>
+                  <hr> <!-- Le da una linea sombreada para ver la divicion -->
                   <label for="">Escuela de procedencia</label>
                   <div class="row">
                     <div class="col-8 col-sm-8">
                     <label for="">Nombre de la institución</label>
                     <input type="text" class="form-control" id="institucion_procedencia_alumno" placeholder="institución">
                     </div>
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                         <label for="">Tipo de escuela nivel medio superior</label>
                         <select background-color="red" id="tipo_escuela_alumno" class="form-select form-select-lg mb-3">
                         <option value="Bachillerato">Bachillerato</option>
                         <option value="Equivalente">Equivalente</option>
                         </select>
-                    </div>
+                    </div-->
                   </div>
                   <br>
+                  <hr> <!-- Le da una linea sombreada para ver la divicion -->
                   <label for="">Datos de contacto</label>
                   <div class="row">
                     <div class="col-4 col-sm-4">
@@ -235,17 +224,17 @@
                   <br>
                   <div class="row">
                     <div class="col-6 col-sm-6">
-                        <label for="">Licenciatura</label>
-                        <select background-color="red" id="licenciaturas_alumno" class="form-select form-select-lg mb-3">
-                        <option value="" selected>Seleccione una carrera</option>
+                        <label for="">Grado y grupo:</label>
+                        <select background-color="red" id="licenciaturas_alumno" class="form-control">
+                        <option value="" selected>Seleccione un grado y grupo</option>
                         </select>
                      </div>
-                     <div class="col-6 col-sm-6">
+                     <!--div class="col-6 col-sm-6">
                             <label for="">Horarios</label>
                               <select background-color="red" id="horarios_alumno" class="form-select form-select-lg mb-3">
                               <option value="" selected>Seleccione una opción</option>
                               </select>
-                    </div>
+                    </div-->
                   </div>
 
                   <br>
@@ -257,12 +246,12 @@
                   <input type="file" class="custom-file-input" id="acta_alumno">
                 </div>
                 </div>
-                <div class="col-4 col-sm-4">
+                <!--div class="col-4 col-sm-4">
                 <div class="form-group">
                   <label for="customFile">Certificado de bachillerato</label>
                   <input type="file" class="custom-file-input" id="certificado_alumno">
                 </div>
-                </div>
+                </div-->
                 <div class="col-4 col-sm-4">
                 <div class="form-group">
                   <label for="customFile">CURP</label>
@@ -773,38 +762,17 @@
           </tr>
         </thead>
       </table>
-
     </div>
   </div>
-
 </div>
 
-
-<!-- AKI TERMIAN LO MIO LO NUEVO QUE AGREGUE -->
-<!--
-  <th>Edad</th>
-            <th>Sexo</th>
-            <th>Dirección</th>
-            <th>Ciudad</th>
-            <th>Nacionalidad</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-            <th>Estado civil</th>
--->
-
-
-
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </section>
-            <!-- / MAIN content -->
-
-
-
-
-    </div> <!-- /END ALL CONTENT -->
+              </div>
+              <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+      </section>
+      <!-- / MAIN content -->
+</div> <!-- /END ALL CONTENT -->
 
 </body>
 </html>

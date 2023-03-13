@@ -12,19 +12,21 @@ $resultados = $this->db->get();
 return $resultados->result();
 }
 ///////////////////////////////BORRAR PERIODOS //////////////////////////////////////////
-
+/*
 public function delete_entry($id)
 {
     return $this->db->delete('carrera', array('id_carrera' => $id));
 }
-
+*/
 //////////////////////////////  INSERTAR PERIODOS ///////////////////////////////////////
+/*
 public function insert_entry($data)
     {
         return $this->db->insert('carrera', $data);
     }
-
+    */
 ///////////////////////////// OBTENER PERIODOS POR ID //////////////////////////////////
+/*
 public function single_entry($id)
           {
               $this->db->select('*');
@@ -35,7 +37,9 @@ public function single_entry($id)
                   return $query->row();
               }
           }
+          */
 //////////////////////////////  ACTUALIZAR PERIODOS ///////////////////////////////////////
+/*
 public function update($data){
 
     return $this->db->update('carrera', $data, array('id_carrera' => $data['id_carrera']));
@@ -45,7 +49,7 @@ public function getArchivoId($id){
       $query = $this->db->query("select * FROM cod where id=?", array($id));
       return $query->row_array();
 }
-
+*/
 
 
 

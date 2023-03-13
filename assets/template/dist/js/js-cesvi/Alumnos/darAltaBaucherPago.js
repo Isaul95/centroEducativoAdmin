@@ -1,4 +1,4 @@
-    $(document).ready(function(){
+/*    $(document).ready(function(){
 
      var semestre = $("#semestreAlum").val();
      llenarTablaAvanceReticulaMateriasCursadasPasadas(semestre);
@@ -170,9 +170,7 @@
 
 
 
-    /* -------------------------------------------------------------------------- */
-    /*           llenarTabla materias por cursar sin calificaciones             */
-    /* -------------------------------------------------------------------------- */
+    
     function llenarTablaAvanceReticula(semestre) {
       // debugger;
       var datos = {
@@ -237,9 +235,7 @@
     }
 
 
-    /* -------------------------------------------------------------------------- */
-    /*           llenarTabla materias cursadas con calificaciones                 */
-    /* -------------------------------------------------------------------------- */
+    
     function llenarTablaAvanceReticulaMateriasCursadasPasadas(semestre) {
       // debugger;
       var datos = {
@@ -317,9 +313,7 @@
 
 
 
-    /* -------------------------------------------------------------------------- */
-    /*                      llenarTablaPagos Records                              */
-    /* -------------------------------------------------------------------------- */
+    
     function litaHistorialPagosAlumnos(semestre,tipoPago) {
       // debugger;
       var datos = {
@@ -496,9 +490,9 @@ function llenarDatosAlumTxt(estadoParcialidad, fecha_limite, estado_archivo){
 // }
 
 
-/*         1.-  FUNCTIO CONSULTA QUE NO EXISTA Comprobante PARA EL ALUMNO K SE ESTA LOGUEANDO;
+/         1.-  FUNCTIO CONSULTA QUE NO EXISTA Comprobante PARA EL ALUMNO K SE ESTA LOGUEANDO;
            1.- SI EXISTE BAUCHER LE MUESTRA EL ICONO PARA PODER MOSTRAR EL DOCUMENRO QUE SUIO
-           2.- DE LO CONTRARIO SI NO EXISTE EL BAUCHER LE MUESTRA EL FORMULARIO PARA DARLO DE ALTA               ************/
+           2.- DE LO CONTRARIO SI NO EXISTE EL BAUCHER LE MUESTRA EL FORMULARIO PARA DARLO DE ALTA              
 
   function ccontadordealumnos(){
       // debugger;
@@ -525,9 +519,6 @@ function llenarDatosAlumTxt(estadoParcialidad, fecha_limite, estado_archivo){
         }
 
 
-/* -------------------------------------------------------------------------- */
-/*                               Insert baucher                               */
-/* -------------------------------------------------------------------------- */
 $(document).on("click", "#darAltaBaucher", function(e) {
     e.preventDefault();
     // debugger;
@@ -1191,5 +1182,6 @@ function horarioyaelegido(){
         "last": "Último",
         "next": "Siguiente",
         "previous": "Anterior"
-      }, /* TODO ESTO ES PARA CAMBIAR DE IDIOMA */
+      }, / TODO ESTO ES PARA CAMBIAR DE IDIOMA /
     }
+*/

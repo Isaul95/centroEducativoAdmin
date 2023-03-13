@@ -23,19 +23,19 @@ class Modelo_Alumnos extends CI_Model { // INICIO DEL MODELO
             return $query->result();
         }
 
-        public function obteneralumnos($carrera,$cuatrimestre,$opcion){
+        public function obteneralumnos($carrera){
             $this->db->distinct();
             $this->db->select("alumnos.numero_control as numero_control,
             concat(alumnos.nombres,' ',alumnos.apellido_paterno,' ',alumnos.apellido_materno) as alumno,
-            alumnos.nombre_acta, alumnos.nombre_certificado_bachillerato, alumnos.nombre_curp, alumnos.nombre_certificado_medico,
-            detalles.id_detalle, alumnos.servicio_social, alumnos.practicas_prof , alumnos.titulacion ");
+            alumnos.nombre_acta, alumnos.nombre_curp, alumnos.nombre_certificado_medico,
+            detalles.id_detalle");
             $this->db->from("alumnos");
             $this->db->join("detalles","alumnos.numero_control = detalles.alumno");
-            $this->db->join("carrera","detalles.carrera = carrera.id_carrera");
+            $this->db->join("grado_grupo","detalles.carrera = grado_grupo.id_grado_grupo");
            $this->db->where_in('alumnos.estatus', ['0','1']);
             $this->db->where("detalles.carrera", $carrera);
-            $this->db->where("detalles.cuatrimestre", $cuatrimestre);
-            $this->db->where("detalles.opcion", $opcion);
+            //$this->db->where("detalles.cuatrimestre", $cuatrimestre);
+            //$this->db->where("detalles.opcion", $opcion);
             $resultados = $this->db->get();
             return $resultados->result();
             }

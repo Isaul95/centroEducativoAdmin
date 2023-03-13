@@ -21,12 +21,12 @@ class GradosGrupos extends CI_Controller {
 		$this->load->view('layouts/footer');
 	}
 	////////////  VISUALIZACIÓN DE LOS PERIODOS ESCOLARES /////////////////////////////
-public function vergradosgrupos()
-{
+public function vergradosgrupos2023(){
     $posts = $this->Modelo_GradosGrupos->obtenergrados();
     echo json_encode($posts);
 }
 
+/*
 ////////////  INSERCIÓON DE LOS PERIODOS ESCOLARES /////////////////////////////
 	public function insertarcarrera(){
 		if ($this->input->is_ajax_request()) {
@@ -79,7 +79,9 @@ public function editarcarrera(){
 		echo "No se permite este acceso directo...!!!";
 	}
 }
+*/
 
+/*
 public function updatecarrera(){
 	if ($this->input->is_ajax_request()) {
 		$this->form_validation->set_rules('licenciatura_update', 'licenciatura', 'required');
@@ -105,6 +107,6 @@ public function updatecarrera(){
 		echo "No se permite este acceso directo...!!!";
 	}
 }
-
+*/
 
 }  // Fin del controller

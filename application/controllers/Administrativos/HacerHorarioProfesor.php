@@ -133,6 +133,13 @@ public function confirmar_horario_profesor(){
 
 	}
 
+	public function vergradosgrupos23(){
+		$posts = $this->Modelo_HacerHorarioProfesor->vergradosgrupos23();
+		echo json_encode($posts);
+
+	}
+
+
 	public function obteneropciones(){
 		$posts = $this->Modelo_HacerHorarioProfesor->obteneropciones();
 		echo json_encode($posts);

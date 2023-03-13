@@ -60,9 +60,9 @@ class Alumnos extends CI_Controller {
 			$this->form_validation->set_rules('localidad', 'localidad', 'required');
 			$this->form_validation->set_rules('municipio_localidad', 'municipio_localidad', 'required');
 			$this->form_validation->set_rules('estado_localidad', 'estado_localidad', 'required');
-			$this->form_validation->set_rules('estado_civil', 'estado_civil', 'required');
+			//$this->form_validation->set_rules('estado_civil', 'estado_civil', 'required');
 			$this->form_validation->set_rules('sexo', 'sexo', 'required');
-			$this->form_validation->set_rules('tipo_escuela_nivel_medio_superior', 'tipo_escuela_nivel_medio_superior', 'required');
+			//$this->form_validation->set_rules('tipo_escuela_nivel_medio_superior', 'tipo_escuela_nivel_medio_superior', 'required');
 			$this->form_validation->set_rules('institucion', 'institucion', 'required');
 			$this->form_validation->set_rules('email', 'email', 'required');
 			$this->form_validation->set_rules('telefono', 'telefono', 'required');
@@ -72,10 +72,10 @@ class Alumnos extends CI_Controller {
            //INSERTANDO EL ALUMNO A SU CARRERA
 			$this->form_validation->set_rules('alumno', 'alumno', 'required');
 			$this->form_validation->set_rules('carrera', 'carrera', 'required');
-			$this->form_validation->set_rules('opcion', 'opcion', 'required');
-			$this->form_validation->set_rules('cuatrimestre', 'cuatrimestre', 'required');
-			$this->form_validation->set_rules('ciclo_escolar', 'ciclo_escolar', 'required');
-
+			//$this->form_validation->set_rules('opcion', 'opcion', 'required');
+			//$this->form_validation->set_rules('cuatrimestre', 'cuatrimestre', 'required');
+			//$this->form_validation->set_rules('ciclo_escolar', 'ciclo_escolar', 'required');
+			
 
 
 			if ($this->form_validation->run() == FALSE) {
@@ -111,7 +111,7 @@ class Alumnos extends CI_Controller {
 		   }
 		   }
 		   ///////////////////CERTIFICADO
-		   if (isset($_FILES["certificado_bachillerato"]["name"])) {
+		   /*if (isset($_FILES["certificado_bachillerato"]["name"])) {
 			$config['upload_path'] = "./assets/template/dist/img/uploads";
 			$config['allowed_types'] = 'gif|jpg|png|pdf';
 			$config['max_size']     = '1000';
@@ -138,7 +138,7 @@ class Alumnos extends CI_Controller {
 
 
 			}
-		   }
+		   }*/
 			//CURP
 			if (isset($_FILES["curp"]["name"])) {
 				$config['upload_path'] = "./assets/template/dist/img/uploads";
@@ -208,9 +208,9 @@ class Alumnos extends CI_Controller {
 			$ajax_data['localidad'] = $this ->input->post('localidad');
 			$ajax_data['municipio_localidad'] = $this ->input->post('municipio_localidad');
 			$ajax_data['estado_localidad'] = $this ->input->post('estado_localidad');
-			$ajax_data['estado_civil'] = $this ->input->post('estado_civil');
+			//$ajax_data['estado_civil'] = $this ->input->post('estado_civil');
 			$ajax_data['sexo'] = $this ->input->post('sexo');
-			$ajax_data['tipo_escuela_nivel_medio_superior'] = $this ->input->post('tipo_escuela_nivel_medio_superior');
+			//$ajax_data['tipo_escuela_nivel_medio_superior'] = $this ->input->post('tipo_escuela_nivel_medio_superior');
 			$ajax_data['institucion'] = $this ->input->post('institucion');
 			$ajax_data['email'] = $this ->input->post('email');
 			$ajax_data['telefono'] = $this ->input->post('telefono');
@@ -222,21 +222,21 @@ class Alumnos extends CI_Controller {
 			//PARA INSERTAR EL ALUMNO A SU CARRERA
 			$ajax_data2['alumno'] = $this->input->post('alumno');
 			$ajax_data2['carrera'] = $this->input->post('carrera');
-			$ajax_data2['opcion'] = $this->input->post('opcion');
-			$ajax_data2['cuatrimestre'] = $this->input->post('cuatrimestre');
-			$ajax_data2['ciclo_escolar'] = $this->input->post('ciclo_escolar');
-			$ajax_data2['estado'] = $this->input->post('estado');
-			$ajax_data2['promedio'] = $this->input->post('promedio');
+			//$ajax_data2['opcion'] = $this->input->post('opcion');
+			//$ajax_data2['cuatrimestre'] = $this->input->post('cuatrimestre');
+			//$ajax_data2['ciclo_escolar'] = $this->input->post('ciclo_escolar');
+			//$ajax_data2['estado'] = $this->input->post('estado');
+			//$ajax_data2['promedio'] = $this->input->post('promedio');
 			//PARA AGREGAR EL ALUMNO COMO USUARIO,
-			$ajax_data4['nombres'] = $this->input->post('nombres');
+			/*$ajax_data4['nombres'] = $this->input->post('nombres');
 			$ajax_data4['apellidos'] = $this->input->post('apellidos');
 			$ajax_data4['username'] = $this->input->post('username');
 			$ajax_data4['password'] = $this->input->post('password');
 			$ajax_data4['rol_id'] = $this->input->post('rol_id');
-			$ajax_data4['estado_usuario'] = $this->input->post('estado_usuario');
+			$ajax_data4['estado_usuario'] = $this->input->post('estado_usuario');*/
 			//PARA AVANZAR LA SECUENCIA DE CADA CARRERA
-            $secuencia = $this->input->post('id_secuencia');
-			$ajax_data3['valor_secuencia'] = $this->input->post('valor_secuencia');
+            //$secuencia = $this->input->post('id_secuencia');
+			//$ajax_data3['valor_secuencia'] = $this->input->post('valor_secuencia');
 			//PARA VERIFICAR SI EL ALUMNO EXISTE
 			$alumno =$this ->input->post('numero_control');
             $tabla = "alumnos";
@@ -254,15 +254,15 @@ class Alumnos extends CI_Controller {
 					}
 					//SE COMENTA PORQUE SE AGREGA TRIGGER PARA INSERTAR EN ALUMNO
 					//if ($this->Modelo_Alumnos->insert_entry_alumno_como_usuario($ajax_data4)) {
-						$data = array('response' => "success", 'message' => "Se agrega como usuario");
+						//$data = array('response' => "success", 'message' => "Se agrega como usuario");
 					//} else {
 					//	$data = array('response' => "error", 'message' => "Error al agregar datos...!");
 					//}
-					if($this->Modelo_Alumnos->update_secuencia($secuencia,$ajax_data3)) {
+					/*if($this->Modelo_Alumnos->update_secuencia($secuencia,$ajax_data3)) {
 						$data = array('response' => "success", 'message' => "¡Alumno agregado correctamente!");
 					}else {
 						$data = array('response' => "error", 'message' => "¡No se pudo agregar el alumno!");
-					}
+					}*/
 				} else {
 					$data = array('response' => "error", 'message' => "Error al agregar datos...!");
 				}
@@ -270,7 +270,6 @@ class Alumnos extends CI_Controller {
 			}
 
 			}
-
 
 			echo json_encode($data);
 
@@ -451,9 +450,9 @@ class Alumnos extends CI_Controller {
 	public function veralumno ()
 	{
 		$carrera = $this->input->post('carrera');
-		$cuatrimestre = $this->input->post('cuatrimestre');
-		$opcion = $this->input->post('opcion');
-		$posts = $this->Modelo_Alumnos->obteneralumnos($carrera,$cuatrimestre,$opcion);
+		//$cuatrimestre = $this->input->post('cuatrimestre');
+		//$opcion = $this->input->post('opcion');
+		$posts = $this->Modelo_Alumnos->obteneralumnos($carrera);
 		echo json_encode($posts);
 	}
 
