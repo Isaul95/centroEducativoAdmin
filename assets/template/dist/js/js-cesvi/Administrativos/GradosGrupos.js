@@ -1,33 +1,30 @@
-/*$(document).ready(function () {
+$(document).ready(function () {
     llenartablagradosgrupos(); // SEINICIALIZA LA FUNCTIO DE LA CARGA DEL LISTADO DE LA TABLA
-    date_picker_carrera();
 });
-/* ---------------------------- Add periodo Modal --------------------------- /
-$("#modal_add_licenciatura").on("hide.bs.modal", function (e) {
+/* ---------------------------- Add periodo Modal --------------------------- */
+$("#modal_add_gradogrupo").on("hide.bs.modal", function (e) {
     // do something...
-    $("#addcarrera")[0].reset();
+    $("#addgradogrupo")[0].reset();
 });
-/* ---------------------------- Edit periodo Modal --------------------------- /
-$("#modaleditcarrera").on("hide.bs.modal", function (e) {
+/* ---------------------------- Edit periodo Modal --------------------------- */
+$("#modaleditargradogrupo").on("hide.bs.modal", function (e) {
     // do something...
-    $("#formeditarcarrera")[0].reset();
+    $("#formeditargradogrupo")[0].reset();
 });
 //////////////////////// AGREGAR PERIODO ////////////////////////////////////////////////7
-$(document).on("click", "#btnaddcarrera", function (e) {
+$(document).on("click", "#btnaddgradogrupo", function (e) {
     e.preventDefault();
-    var licenciatura = $("#licenciatura").val();
-    var clave_licenciatura = $("#clave_licenciatura").val();
-    var fecha_licenciatura = $("#datepicker_fecha_licenciatura").val();
-    if (licenciatura == "" || clave_licenciatura == "" || fecha_licenciatura == "") {
+    var nombre = $("#gradogrupo").val();
+    var descripcion = $("#descripciongradogrupo").val();
+    if (nombre == "" || descripcion == "" ) {
         alert("¡Complete todos los campos!");
     } else {
         var fd = new FormData();
-        fd.append("carrera_descripcion", licenciatura);
-        fd.append("clave", clave_licenciatura);
-        fd.append("fecha", fecha_licenciatura);
+        fd.append("nombre", nombre);
+        fd.append("descripcion", descripcion);
         $.ajax({
             type: "post",
-            url: base_url + 'Administrativos/Carreras/insertarcarrera',
+            url: base_url + 'Administrativos/GradosGrupos/insertargradogrupo',
             data: fd,
             processData: false,
             contentType: false,
@@ -36,8 +33,8 @@ $(document).on("click", "#btnaddcarrera", function (e) {
             success: function (response) {
                 if (response.res == "success") {
                     toastr["success"](response.message);
-                    $("#modal_add_licenciatura").modal("hide");
-                    $("#addcarrera")[0].reset();
+                    $("#modal_add_gradogrupo").modal("hide");
+                    $("#addgradogrupo")[0].reset();
                     $("#tbl_gradosgrupos").DataTable().destroy();
                     llenartablagradosgrupos();
                 } else {
@@ -76,8 +73,8 @@ function llenartablagradosgrupos() {
                         searchable: false,
                         data: function (row, type, set) {
                             return `  
-                        <a href="#" id="edit_carrera" class="btn btn-success btn-remove" value="${row.id_grado_grupo}"><i class="far fa-edit"></i></a>
-                        <a href="#" id="del_carrera" class="btn btn-danger btn-remove" value="${row.id_grado_grupo}"><i class="fas fa-trash-alt"></i></a>
+                        <a href="#" id="edit_gradogrupo" class="btn btn-success btn-remove" value="${row.id_grado_grupo}"><i class="far fa-edit"></i></a>
+                        <a href="#" id="del_gradogrupo" class="btn btn-danger btn-remove" value="${row.id_grado_grupo}"><i class="fas fa-trash-alt"></i></a>
                                  `;
                         },
                     },
@@ -88,7 +85,7 @@ function llenartablagradosgrupos() {
     });
 }
 //////////////////////// ELIMINAR PERIODO ////////////////////////////////////////////////7
-$(document).on("click", "#del_carrera", function (e) {
+$(document).on("click", "#del_gradogrupo", function (e) {
     e.preventDefault();
     var del_id = $(this).attr("value");
     Swal.fire({
@@ -104,7 +101,7 @@ $(document).on("click", "#del_carrera", function (e) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "post",
-                url: base_url + 'Administrativos/Carreras/eliminarcarrera',
+                url: base_url + 'Administrativos/GradosGrupos/eliminargradogrupo',
                 data: {
                     del_id: del_id,
                 },
@@ -113,7 +110,7 @@ $(document).on("click", "#del_carrera", function (e) {
                     if (data.responce == "success") {
                         Swal.fire(
                             '¡Eliminado!',
-                            'El periodo fue eliminado',
+                            'El grado y grupo fue eliminado',
                             'success'
                         );
                         $("#tbl_gradosgrupos").DataTable().destroy();
@@ -125,51 +122,48 @@ $(document).on("click", "#del_carrera", function (e) {
     });
 });
 ////////////////////////// GET PERIODO FOR EDIT /////////////////////////////////
-$(document).on("click", "#edit_carrera", function (e) {
+$(document).on("click", "#edit_gradogrupo", function (e) {
     e.preventDefault();
     var edit_id = $(this).attr("value");
     $.ajax({
         type: "post",
-        url: base_url + 'Administrativos/Carreras/editarcarrera',
+        url: base_url + 'Administrativos/GradosGrupos/editargradogrupo',
         data: {
             edit_id: edit_id,
         },
         dataType: "json",
         success: function (data) {
             // console.log(data); ver la respuesta del json, los valores que contiene
-            $('#modaleditcarrera').modal('show');
-            $('#id_licenciatura_update').val(data.post.id_carrera)
-            $('#licenciatura_update').val(data.post.carrera_descripcion)
-            $('#clave_licenciatura_update').val(data.post.clave)
-            $('#datepicker_fecha_licenciatura_update').val(data.post.fecha)
+            $('#modaleditargradogrupo').modal('show');
+            $('#id_grado_grupo').val(data.post.id_grado_grupo)
+            $('#gradogrupoeditar').val(data.post.nombre)
+            $('#descripciongradogrupoeditar').val(data.post.descripcion)
         },
     });
 });
 ////////////////////////// EDIT PERIODO /////////////////////////////////
-$(document).on("click", "#update_carrera", function (e) {
+$(document).on("click", "#update_gradogrupo", function (e) {
     e.preventDefault();
-    var id_carrera = $('#id_licenciatura_update').val();
-    var licenciatura_update = $('#licenciatura_update').val();
-    var clave_licenciatura_update = $('#clave_licenciatura_update').val();
-    var datepicker_fecha_licenciatura_update = $('#datepicker_fecha_licenciatura_update').val();
-    if (licenciatura_update == "" || clave_licenciatura_update == "" || datepicker_fecha_licenciatura_update == "") {
+    var id_grado_grupo = $('#id_grado_grupo').val();
+    var nombre = $('#gradogrupoeditar').val();
+    var descripcion = $('#descripciongradogrupoeditar').val();
+    if (id_grado_grupo == "" || nombre == "") {
         alert("¡Complete todos los campos!");
     } else {
         $.ajax({
             type: "post",
-            url: base_url + 'Administrativos/Carreras/updatecarrera',
+            url: base_url + 'Administrativos/GradosGrupos/updategradogrupo',
             data: {
-                id_carrera: id_carrera,
-                licenciatura_update: licenciatura_update,
-                clave_licenciatura_update: clave_licenciatura_update,
-                datepicker_fecha_licenciatura_update: datepicker_fecha_licenciatura_update
+                id_grado_grupo: id_grado_grupo,
+                nombre: nombre,
+                descripcion: descripcion
             },
             dataType: "json",
             success: function (data) {
                 if (data.responce == "success") {
                     toastr["success"](data.message);
-                    $("#modaleditcarrera").modal("hide");
-                    $("#formeditarcarrera")[0].reset();
+                    $("#modaleditargradogrupo").modal("hide");
+                    $("#formeditargradogrupo")[0].reset();
                     $("#tbl_gradosgrupos").DataTable().destroy();
                     llenartablagradosgrupos();
                 } else {
@@ -193,25 +187,5 @@ var language_espaniol = {
         "last": "Último",
         "next": "Siguiente",
         "previous": "Anterior"
-    }, / TODO ESTO ES PARA CAMBIAR DE IDIOMA /
+    }, /* TODO ESTO ES PARA CAMBIAR DE IDIOMA */
 }
-function date_picker_carrera() {
-    $("#datepicker_fecha_licenciatura,#datepicker_fecha_licenciatura_update").datepicker({
-        closeText: 'Cerrar',
-        currentText: 'Hoy',
-        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
-            'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié;', 'Juv', 'Vie', 'Sáb'],
-        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-        weekHeader: 'Sm',
-        dateFormat: 'yy/mm/dd',
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: ''
-    });
-    $.datepicker.setDefaults($.datepicker.regional['es']);
-}*/

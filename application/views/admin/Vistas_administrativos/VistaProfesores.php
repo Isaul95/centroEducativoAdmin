@@ -59,6 +59,7 @@
               <div class="col-sm-12">
                 <label for="">Datos personales</label>
                   <div class="row">
+                  <br>
                     <div class="col-8 col-sm-8">
                     <label for="">Nombre completo</label>
                     <input type="text" class="form-control" id="nombre_profesor" placeholder="Nombre del profesor">
@@ -73,12 +74,14 @@
                     </div>
                   </div>
                   <div class="row">
+                  <br>
                     <div class="col-8 col-sm-12">
                     <label for="">Dirección</label>
                     <input type="text" class="form-control" id="direccion_profesor" placeholder="Dirección">
                     </div>
                   </div>
                   <div class="row">
+                  <br>
                     <div class="col-8 col-sm-6">
                     <label for="">Ciudad donde radica</label>
                     <input type="text" class="form-control" id="ciudad_profesor" placeholder="Ciudad">
@@ -89,6 +92,7 @@
                     </div>
                   </div>
                   <div class="row">
+                  <br>
                     <div class="col-8 col-sm-6">
                     <label for="">Telefono celular</label>
                     <input type="text" class="form-control" id="telefono_profesor" placeholder="Celular">
@@ -111,6 +115,7 @@
               <div class="col-sm-12">
                 <label for="">Datos acádemicos</label>
                  <div class="row">
+                 <br>
                     <div class="col-8 col-sm-6">
                     <label for="">Nivel de estudios</label>
                     <input type="text" class="form-control" id="niveldeestudios_profesor" placeholder="Nivel de estudios">
@@ -125,6 +130,7 @@
                     </div>
                   </div>
                   <div class="row">
+                  <br>
                     <div class="col-8 col-sm-6">
                     <label for="">Ocupación</label>
                     <input type="text" class="form-control" id="ocupacion_profesor" placeholder="Ocupación">
@@ -135,6 +141,7 @@
                     </div>
                   </div>
                   <div class="row">
+                  <br>
                     <div class="col-8 col-sm-6">
                     <label for="">Universidad procedente</label>
                     <input type="text" class="form-control" id="universidadprocedente_profesor" placeholder="Universidad procedente">
@@ -145,14 +152,23 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-8 col-sm-12">
+                  <br>
+                    <div class="col-8 col-sm-6">
                     <label for="">Trabajos anteriores (minimo 3)</label>
                     <input type="text" class="form-control" id="trabajosprevios_profesor" placeholder="Trabajos anteriores">
                     </div>
+                  
+                    <div class="col-6 col-sm-6">
+                        <label for="">Grado y grupo</label>
+                        <br>
+                        <select background-color="red" id="combogrado_grupo" class="form-select form-select-lg mb-3">
+                        <option value="" selected>Seleccione una opción</option>
+                        </select>
+                     </div>
                   </div>
               </div>
             </div>
-
+            <br>
                 <!-- Image -->
                 <div class="form-group">
                   <label for="customFile">Adjuntar archivo (Curriculum vitae)</label>
@@ -280,10 +296,17 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-8 col-sm-12">
+                    <div class="col-6 col-sm-6">
                     <label for="">Trabajos anteriores (minimo 3)</label>
                     <input type="text" class="form-control" id="trabajosprevios_profesor_update" placeholder="Trabajos anteriores">
                     </div>
+                    <div class="col-6 col-sm-6">
+                        <label for="">Grado y grupo</label>
+                        <br>
+                        <select background-color="red" id="combogrado_grupo_update" class="form-select form-select-lg mb-3">
+                        <option selected disabled>Seleccione una opción</option>
+                        </select>
+                     </div>
                   </div>
               </div>
             </div>
@@ -336,47 +359,47 @@
                   <div class="row">
                     <div class="col-8 col-sm-8">
                     <label for="">Nombre completo</label>
-                    <input type="text" class="form-control" id="nombre_profesor_view" placeholder="Nombre del profesor">
+                    <input type="text" class="form-control" id="nombre_profesor_view" >
                     </div>
                     <div class="col-4 col-sm-2">
                     <label for="">Edad</label>
-                    <input type="text" class="form-control" id="edad_profesor_view" placeholder="Edad">
+                    <input type="text" class="form-control" id="edad_profesor_view">
                     </div>
                     <div class="col-4 col-sm-2">
                     <label for="">Sexo</label>
-                    <input type="text" class="form-control" id="sexo_profesor_view" placeholder="Sexo">
+                    <input type="text" class="form-control" id="sexo_profesor_view" >
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-8 col-sm-12">
                     <label for="">Dirección</label>
-                    <input type="text" class="form-control" id="direccion_profesor_view" placeholder="Dirección">
+                    <input type="text" class="form-control" id="direccion_profesor_view" >
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-8 col-sm-6">
                     <label for="">Ciudad donde radica</label>
-                    <input type="text" class="form-control" id="ciudad_profesor_view" placeholder="Ciudad">
+                    <input type="text" class="form-control" id="ciudad_profesor_view">
                     </div>
                     <div class="col-8 col-sm-6">
                     <label for="">Nacionalidad</label>
-                    <input type="text" class="form-control" id="nacionalidad_profesor_view" placeholder="Nacionalidad">
+                    <input type="text" class="form-control" id="nacionalidad_profesor_view" >
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-8 col-sm-6">
                     <label for="">Telefono celular</label>
-                    <input type="text" class="form-control" id="telefono_profesor_view" placeholder="Celular">
+                    <input type="text" class="form-control" id="telefono_profesor_view" >
                     </div>
                     <div class="col-8 col-sm-6">
                     <label for="">Correo electronico</label>
-                    <input type="text" class="form-control" id="email_profesor_view" placeholder="Email">
+                    <input type="text" class="form-control" id="email_profesor_view" >
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-8 col-sm-6">
                     <label for="">Estado civil</label>
-                    <input type="text" class="form-control" id="estadocivil_profesor_view" placeholder="estado civil">
+                    <input type="text" class="form-control" id="estadocivil_profesor_view" >
                     </div>
                   </div>
                 </div>
@@ -388,41 +411,45 @@
                  <div class="row">
                     <div class="col-8 col-sm-6">
                     <label for="">Nivel de estudios</label>
-                    <input type="text" class="form-control" id="niveldeestudios_profesor_view" placeholder="Nivel de estudios">
+                    <input type="text" class="form-control" id="niveldeestudios_profesor_view">
                     </div>
                     <div class="col-4 col-sm-3">
                     <label for="">Titulado</label>
-                    <input type="text" class="form-control" id="titulado_profesor_view" placeholder="Titulado">
+                    <input type="text" class="form-control" id="titulado_profesor_view">
                     </div>
                     <div class="col-4 col-sm-3">
                     <label for="">Cedula</label>
-                    <input type="text" class="form-control" id="cedula_profesor_view" placeholder="Cedula">
+                    <input type="text" class="form-control" id="cedula_profesor_view">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-8 col-sm-6">
                     <label for="">Ocupación</label>
-                    <input type="text" class="form-control" id="ocupacion_profesor_view" placeholder="Ocupación">
+                    <input type="text" class="form-control" id="ocupacion_profesor_view" >
                     </div>
                     <div class="col-4 col-sm-6">
                     <label for="">Tipo de trabajo</label>
-                    <input type="text" class="form-control" id="tipodetrabajo_profesor_view" placeholder="Tipo de trabajo">
+                    <input type="text" class="form-control" id="tipodetrabajo_profesor_view">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-8 col-sm-6">
                     <label for="">Universidad procedente</label>
-                    <input type="text" class="form-control" id="universidadprocedente_profesor_view" placeholder="Universidad procedente">
+                    <input type="text" class="form-control" id="universidadprocedente_profesor_view">
                     </div>
                     <div class="col-4 col-sm-6">
                     <label for="">Experiencia docente</label>
-                    <input type="text" class="form-control" id="experiencia_profesor_view" placeholder="Experiencia docente">
+                    <input type="text" class="form-control" id="experiencia_profesor_view">
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-8 col-sm-12">
+                    <div class="col-6 col-sm-6">
                     <label for="">Trabajos anteriores (minimo 3)</label>
-                    <input type="text" class="form-control" id="trabajosprevios_profesor_view" placeholder="Trabajos anteriores">
+                    <input type="text" class="form-control" id="trabajosprevios_profesor_view">
+                    </div>
+                    <div class="col-6 col-sm-6">
+                    <label for="">Grado y grupo</label>
+                    <input type="text" class="form-control" id="grado_grupo_view">
                     </div>
                   </div>
               </div>

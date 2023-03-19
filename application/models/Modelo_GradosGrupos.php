@@ -12,46 +12,48 @@ $resultados = $this->db->get();
 return $resultados->result();
 }
 ///////////////////////////////BORRAR PERIODOS //////////////////////////////////////////
-/*
+
 public function delete_entry($id)
 {
-    return $this->db->delete('carrera', array('id_carrera' => $id));
+    return $this->db->delete('grado_grupo', array('id_grado_grupo' => $id));
 }
-*/
+
 //////////////////////////////  INSERTAR PERIODOS ///////////////////////////////////////
-/*
 public function insert_entry($data)
     {
-        return $this->db->insert('carrera', $data);
+        return $this->db->insert('grado_grupo', $data);
     }
-    */
+
 ///////////////////////////// OBTENER PERIODOS POR ID //////////////////////////////////
-/*
 public function single_entry($id)
           {
               $this->db->select('*');
-              $this->db->from('carrera');
-              $this->db->where('id_carrera', $id);
+              $this->db->from('grado_grupo');
+              $this->db->where('id_grado_grupo', $id);
               $query = $this->db->get();
               if (count($query->result()) > 0) {
                   return $query->row();
               }
           }
-          */
 //////////////////////////////  ACTUALIZAR PERIODOS ///////////////////////////////////////
-/*
 public function update($data){
 
-    return $this->db->update('carrera', $data, array('id_carrera' => $data['id_carrera']));
+    return $this->db->update('grado_grupo', $data, array('id_grado_grupo' => $data['id_grado_grupo']));
 }
 
 public function getArchivoId($id){
       $query = $this->db->query("select * FROM cod where id=?", array($id));
       return $query->row_array();
 }
-*/
 
 
+public function obtenergradogrupo(){
+    $this->db->distinct();
+    $this->db->select("id_grado_grupo,nombre");
+    $this->db->from("grado_grupo");
+    $resultados = $this->db->get();
+    return $resultados->result();
+    }
 
 
 

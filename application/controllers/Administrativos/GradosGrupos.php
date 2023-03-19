@@ -21,24 +21,23 @@ class GradosGrupos extends CI_Controller {
 		$this->load->view('layouts/footer');
 	}
 	////////////  VISUALIZACIÓN DE LOS PERIODOS ESCOLARES /////////////////////////////
-public function vergradosgrupos2023(){
+public function vergradosgrupos()
+{
     $posts = $this->Modelo_GradosGrupos->obtenergrados();
     echo json_encode($posts);
 }
 
-/*
 ////////////  INSERCIÓON DE LOS PERIODOS ESCOLARES /////////////////////////////
-	public function insertarcarrera(){
+	public function insertargradogrupo(){
 		if ($this->input->is_ajax_request()) {
-			$this->form_validation->set_rules('carrera_descripcion', 'ciclo', 'required');
-			$this->form_validation->set_rules('clave', 'clave', 'required');
-			$this->form_validation->set_rules('fecha', 'fecha', 'required');
+			$this->form_validation->set_rules('nombre', 'ciclo', 'required');
+			$this->form_validation->set_rules('descripcion', 'clave', 'required');
 			if ($this->form_validation->run() == FALSE) {
 				$data = array('res' => "error", 'message' => validation_errors());
 			} else {
         $ajax_data = $this->input->post();
-        					if ($this->Modelo_GradosGrupos->insert_entry($ajax_data)) {
-						$data = array('res' => "success", 'message' => "¡Periodo agregado!");
+        			if ($this->Modelo_GradosGrupos->insert_entry($ajax_data)) {
+						$data = array('res' => "success", 'message' => "¡Grado y grupo agregado!");
 					} else {
 						$data = array('res' => "error", 'message' => "");
 					}
@@ -48,11 +47,10 @@ public function vergradosgrupos2023(){
 		} else {
 			echo "No se permite este acceso directo...!!!";
 		}
-
 	}
 
 ////////////  ELIMINACIÓN DE LOS PERIODOS ESCOLARES /////////////////////////////
-public function eliminarcarrera(){
+public function eliminargradogrupo(){
 	if ($this->input->is_ajax_request()) {
 		$del_id = $this->input->post('del_id');
 	if ($this->Modelo_GradosGrupos->delete_entry($del_id)) {
@@ -66,7 +64,7 @@ public function eliminarcarrera(){
 	}
 }
 
-public function editarcarrera(){
+public function editargradogrupo(){
 	if ($this->input->is_ajax_request()) {
 		$edit_id = $this->input->post('edit_id');
 		if ($post = $this->Modelo_GradosGrupos->single_entry($edit_id)) {
@@ -79,24 +77,21 @@ public function editarcarrera(){
 		echo "No se permite este acceso directo...!!!";
 	}
 }
-*/
 
-/*
-public function updatecarrera(){
+public function updategradogrupo(){
 	if ($this->input->is_ajax_request()) {
-		$this->form_validation->set_rules('licenciatura_update', 'licenciatura', 'required');
-		$this->form_validation->set_rules('clave_licenciatura_update', 'clave', 'required');
-		$this->form_validation->set_rules('datepicker_fecha_licenciatura_update', 'fecha', 'required');
+		
+		$this->form_validation->set_rules('nombre', 'ciclo', 'required');
+			$this->form_validation->set_rules('descripcion', 'clave', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$data = array('res' => "error", 'message' => validation_errors());
 		} else {
-			$data['id_carrera'] = $this ->input->post('id_carrera');
-			$data['carrera_descripcion'] = $this ->input->post('licenciatura_update');
-			$data['clave'] = $this ->input->post('clave_licenciatura_update');
-			$data['fecha'] = $this ->input->post('datepicker_fecha_licenciatura_update');
+			$data['id_grado_grupo'] = $this ->input->post('id_grado_grupo');
+			$data['nombre'] = $this ->input->post('nombre');
+			$data['descripcion'] = $this ->input->post('descripcion');
 	
 						if ($this->Modelo_GradosGrupos->update($data)) {
-					$data = array('responce' => "success", 'message' => "¡Periodo actualizado!");
+					$data = array('responce' => "success", 'message' => "¡Grado y grupo actualizado!");
 				} else {
 					$data = array('responce' => "error", 'message' => "");
 				}
@@ -107,6 +102,10 @@ public function updatecarrera(){
 		echo "No se permite este acceso directo...!!!";
 	}
 }
-*/
+public function obtenergradogrupo(){
+	$posts = $this->Modelo_GradosGrupos->obtenergradogrupo();
+	echo json_encode($posts);
+
+}
 
 }  // Fin del controller

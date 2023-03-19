@@ -46,6 +46,7 @@ class Profesores extends CI_Controller {
 				$this->form_validation->set_rules('universidad_procedente', 'universidadprocedente_profesor', 'required');
 				$this->form_validation->set_rules('experiencia_docente', 'experiencia_profesor', 'required');
 				$this->form_validation->set_rules('trabajos_anteriores', 'trabajosprevios_profesor', 'required');
+				$this->form_validation->set_rules('grado_grupo', 'grado_grupo', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$data = array('res' => "error", 'message' => validation_errors());
@@ -91,6 +92,7 @@ class Profesores extends CI_Controller {
 				$ajax_data['universidad_procedente'] = $this ->input->post('universidad_procedente');
 				$ajax_data['experiencia_docente'] = $this ->input->post('experiencia_docente');
 				$ajax_data['trabajos_anteriores'] = $this ->input->post('trabajos_anteriores');
+				$ajax_data['grado_grupo'] = $this ->input->post('grado_grupo');
 				$ajax_data['horario_asignado'] = 0;
 
 
@@ -145,6 +147,7 @@ class Profesores extends CI_Controller {
 			$this->form_validation->set_rules('universidad_procedente', 'universidadprocedente_profesor', 'required');
 			$this->form_validation->set_rules('experiencia_docente', 'experiencia_profesor', 'required');
 			$this->form_validation->set_rules('trabajos_anteriores', 'trabajosprevios_profesor', 'required');
+			$this->form_validation->set_rules('grado_grupo', 'grado_grupo', 'required');
 			if ($this->form_validation->run() == FALSE) {
 				$data = array('res' => "error", 'message' => validation_errors());
 			} else {
@@ -194,6 +197,8 @@ class Profesores extends CI_Controller {
 					$ajax_data['universidad_procedente'] = $this ->input->post('universidad_procedente');
 					$ajax_data['experiencia_docente'] = $this ->input->post('experiencia_docente');
 					$ajax_data['trabajos_anteriores'] = $this ->input->post('trabajos_anteriores');
+					$ajax_data['grado_grupo'] = $this ->input->post('grado_grupo');
+
 
 					if ($this->Modelo_Profesores->update_entry($id_profesores, $ajax_data)) {
 						$data = array('res' => "success", 'message' => "Datos actualizados correctamente!");
@@ -249,7 +254,7 @@ class Profesores extends CI_Controller {
 	public function viewprofesor(){
 		if ($this->input->is_ajax_request()) {
 			$view_id = $this->input->post('view_id');
-			if ($post = $this->Modelo_Profesores->single_entry($view_id)) {
+			if ($post = $this->Modelo_Profesores->getProfesorInfo($view_id)) {
 				$data = array('responce' => "success", "post" => $post);
 			}else{
 				$data = array('responce' => "error", "failed to fetch");

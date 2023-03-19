@@ -1,6 +1,7 @@
 $(document).ready(function(){
     llenarTablaProfesores(); // SEINICIALIZA LA FUNCTIO DE LA CARGA DEL LISTADO DE LA TABLA
     habilitar_deshabilitar();
+    llenar_combo_grado_grupo('#combogrado_grupo');
   }); // FIN DE LA FUNCION PRINCIPAL
 
 
@@ -60,11 +61,12 @@ $(document).on("click", "#btnaddprofesor", function(e) {
         var experiencia_profesor = $("#experiencia_profesor").val();
         var trabajosprevios_profesor = $("#trabajosprevios_profesor").val();
         var img = $("#archivo_profesor")[0].files[0]; // this is file
+        var grado_grupo = $("#combogrado_grupo").val();
 
     if (nombre_profesor == "" || edad_profesor == "" || sexo_profesor == "" || direccion_profesor == "" || ciudad_profesor == ""||
         nacionalidad_profesor == "" ||  telefono_profesor == "" || email_profesor == "" || estadocivil_profesor == ""||
         niveldeestudios_profesor == "" || titulado_profesor == "" || cedula_profesor == "" || ocupacion_profesor == "" || tipodetrabajo_profesor == ""||
-        universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == "" ) { // || img.name == ""
+        universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == "" || grado_grupo == "" ) { // || img.name == ""
         alert("Debe llenar todos los campos vacios...!");
     } else {
         var fd = new FormData();
@@ -87,6 +89,7 @@ $(document).on("click", "#btnaddprofesor", function(e) {
         fd.append("universidad_procedente", universidadprocedente_profesor);
         fd.append("experiencia_docente", experiencia_profesor);
         fd.append("trabajos_anteriores", trabajosprevios_profesor);
+        fd.append("grado_grupo", grado_grupo);
 
         if ($("#archivo_profesor")[0].files.length > 0) {
               fd.append("nombre_archivo", img); //Obt principalmente el name file
@@ -148,6 +151,7 @@ $(document).on("click", "#view_profe", function (e) {
             $("#universidadprocedente_profesor_view").val(data.post.universidad_procedente);
             $("#experiencia_profesor_view").val(data.post.experiencia_docente);
             $("#trabajosprevios_profesor_view").val(data.post.trabajos_anteriores);
+            $("#grado_grupo_view").val(data.post.nombre);
         },
     });
 });
@@ -184,6 +188,7 @@ $(document).on("click", "#edit_profe", function (e) {
             $("#universidadprocedente_profesor_update").val(data.post.universidad_procedente);
             $("#experiencia_profesor_update").val(data.post.experiencia_docente);
             $("#trabajosprevios_profesor_update").val(data.post.trabajos_anteriores);
+            llenar_combo_grado_grupo('#combogrado_grupo_update',data.post.grado_grupo);
         },
     });
 });
@@ -209,13 +214,14 @@ $(document).on("click", "#update_profesor", function (e) {
    var universidadprocedente_profesor = $("#universidadprocedente_profesor_update").val();
    var experiencia_profesor = $("#experiencia_profesor_update").val();
    var trabajosprevios_profesor = $("#trabajosprevios_profesor_update").val();
+   var combogrado_grupo_update = $("#combogrado_grupo_update").val();
    // var archivo_profesor_update = $("#archivo_profesor_update")[0].files[0]; // this is file
     var edit_img = $("#edit_img")[0].files[0]; // this is file
 
     if (nombre_profesor == "" || edad_profesor == "" || sexo_profesor == "" || direccion_profesor == "" || ciudad_profesor == ""||
    nacionalidad_profesor == "" ||  telefono_profesor == "" || email_profesor == "" || estadocivil_profesor == ""||
    niveldeestudios_profesor == "" || titulado_profesor == "" || cedula_profesor == "" || ocupacion_profesor == "" || tipodetrabajo_profesor == ""||
-   universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == "" ) {  // || img.name == ""
+   universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == ""|| combogrado_grupo_update == "" ) {  // || img.name == ""
         alert("Debe llenar todos los campos vacios...!");
     } else {
 
@@ -240,6 +246,8 @@ $(document).on("click", "#update_profesor", function (e) {
         fd.append("universidad_procedente", universidadprocedente_profesor);
         fd.append("experiencia_docente", experiencia_profesor);
         fd.append("trabajos_anteriores", trabajosprevios_profesor);
+        fd.append("grado_grupo", combogrado_grupo_update);
+        
 
         if ($("#edit_img")[0].files.length > 0) {
              fd.append("nombre_archivo", edit_img);
@@ -552,4 +560,27 @@ $("#tipodetrabajo_profesor_view").prop('disabled', true);
 $("#universidadprocedente_profesor_view").prop('disabled', true);
 $("#experiencia_profesor_view").prop('disabled', true);
 $("#trabajosprevios_profesor_view").prop('disabled', true);
+$("#grado_grupo_view").prop('disabled', true);
+    }
+
+    function llenar_combo_grado_grupo(selectInput, iSelected=-1) {
+        debugger;
+        $.ajax({
+            type: "get",
+            url: base_url + 'Administrativos/GradosGrupos/obtenergradogrupo',
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                var $listado = $(selectInput);
+                $listado.empty()
+                $.each(data, function (key, registro) {
+                    // $("#combogrado_grupo").append('<option value=' + registro.id_grado_grupo + '>' + registro.nombre + '</option>');
+                    if (registro.id_grado_grupo == iSelected) {
+                        $listado.append($("<option />").val(registro.id_grado_grupo).text(registro.nombre).attr('selected', 'selected'));
+                    } else {
+                        $listado.append($("<option />").val(registro.id_grado_grupo).text(registro.nombre));
+                    }
+                });
+            },
+        });
     }
