@@ -161,7 +161,7 @@
                     <div class="col-6 col-sm-6">
                         <label for="">Grado y grupo</label>
                         <br>
-                        <select background-color="red" id="combogrado_grupo" class="form-select form-select-lg mb-3">
+                        <select background-color="red" id="combogrado_grupo" class="form-control">
                         <option value="" selected>Seleccione una opción</option>
                         </select>
                      </div>
@@ -303,7 +303,7 @@
                     <div class="col-6 col-sm-6">
                         <label for="">Grado y grupo</label>
                         <br>
-                        <select background-color="red" id="combogrado_grupo_update" class="form-select form-select-lg mb-3">
+                        <select background-color="red" id="combogrado_grupo_update" class="form-control">
                         <option selected disabled>Seleccione una opción</option>
                         </select>
                      </div>
@@ -487,8 +487,8 @@
             <!-- <th>Trabajos ants.</th> -->
             <th class="text-center" width="7%">CV</th>
             <!--<th>Activo/DesAct.</th>
-            <th>Horario</th>-->
-            <th class="text-center" width="7%">Habilitar</th>
+            <th>Horario</th>
+            <th class="text-center" width="7%">Habilitar</th>-->
             <th class="text-center" width="7%">Acciones</th>
             <th class="text-center" width="7%">Ficha completa</th>
           </tr>

@@ -367,7 +367,7 @@ function llenarTablaProfesores() {
                     //          return a;
                     //     },
                     // },
-                    {
+                    /*{
                         orderable: false,
                         searchable: false,
                         data: function(row, type, set) {
@@ -383,6 +383,7 @@ function llenarTablaProfesores() {
                             return a;
                         },
                     },
+                    */
                     {
                         orderable: false,
                         searchable: false,
