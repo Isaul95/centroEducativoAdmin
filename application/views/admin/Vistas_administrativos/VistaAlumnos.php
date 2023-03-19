@@ -478,9 +478,9 @@
                     </div>
                   </div>
                   <br>
-                  <label for="">Estado civil y sexo</label>
+                  <!--label for="">Estado civil y sexo</label-->
                   <div class="row">
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                         <label for="">Estado civil</label>
                         <select background-color="red" id="estado_civil_alumno_update" class="form-select form-select-lg mb-3">
                         <option value="Soltero(a)">Soltero(a)</option>
@@ -488,10 +488,10 @@
                         <option value="Divorciado(a)">Divorciado(a)</option>
                         <option value="Viudo(a)">Viudo(a)</option>
                         </select>
-                    </div>
+                    </div-->
                       <div class="col-4 col-sm-6">
                               <label for="">Sexo</label>
-                              <select background-color="red" id="sexo_alumno_update" class="form-select form-select-lg mb-3">
+                              <select background-color="red" id="sexo_alumno_update" class="form-control">
                               <option value="Masculino">Masculino</option>
                               <option value="Femenino">Femenino</option>
                               </select>
@@ -504,13 +504,13 @@
                     <label for="">Nombre de la institución</label>
                     <input type="text" class="form-control" id="institucion_procedencia_alumno_update" placeholder="institución">
                     </div>
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                         <label for="">Tipo de escuela nivel medio superior</label>
                         <select background-color="red" id="tipo_escuela_alumno_update" class="form-select form-select-lg mb-3">
                         <option value="Bachillerato">Bachillerato</option>
                         <option value="Equivalente">Equivalente</option>
                         </select>
-                    </div>
+                    </div-->
                   </div>
                   <br>
                   <label for="">Datos de contacto</label>
@@ -549,12 +549,7 @@
                   <input type="file" class="custom-file-input" id="acta_alumno_update">
                 </div>
                 </div>
-                <div class="col-4 col-sm-4">
-                <div class="form-group">
-                  <label for="customFile">Certificado de bachillerato</label>
-                  <input type="file" class="custom-file-input" id="certificado_alumno_update">
-                </div>
-                </div>
+
                 <div class="col-4 col-sm-4">
                 <div class="form-group">
                   <label for="customFile">CURP</label>
@@ -578,7 +573,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
               <button type="button" class="btn btn-primary" id="update_alumno">Actualizar</button>
             </div>
           </div>
@@ -669,12 +664,12 @@
                     </div>
                   </div>
                   <br>
-                  <label for="">Estado civil y sexo</label>
+                  <!--label for="">Estado civil y sexo</label-->
                   <div class="row">
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                     <label for="">Estado civil</label>
                     <input type="text" class="form-control" id="estado_civil_alumno_view" placeholder="estado">
-                    </div>
+                    </div-->
                       <div class="col-4 col-sm-6">
                               <label for="">Sexo</label>
                               <input type="text" class="form-control" id="sexo_alumno_view" placeholder="estado">
@@ -687,10 +682,10 @@
                     <label for="">Nombre de la institución</label>
                     <input type="text" class="form-control" id="institucion_procedencia_alumno_view" placeholder="institución">
                     </div>
-                    <div class="col-4 col-sm-4">
+                    <!--div class="col-4 col-sm-4">
                         <label for="">Tipo de escuela nivel medio superior</label>
                         <input type="text" class="form-control" id="tipo_escuela_alumno_view" placeholder="estado">
-                    </div>
+                    </div-->
                   </div>
                   <br>
                   <label for="">Datos de contacto</label>
@@ -721,13 +716,13 @@
                   <br>
                   <div class="row">
                     <div class="col-6 col-sm-6">
-                        <label for="">Licenciatura</label>
+                        <label for="">Grado y grupo:</label>
                         <input type="text" class="form-control" id="licenciaturas_alumno_view">
                      </div>
-                     <div class="col-6 col-sm-6">
+                     <!--div class="col-6 col-sm-6">
                             <label for="">Horario</label>
                             <input type="text" class="form-control" id="horarios_alumno_view">
-                    </div>
+                    </div-->
                   </div>
               </div>
             </div>
@@ -748,17 +743,17 @@
       <table id="tbl_alumnos_inscripcion" class="table table-striped table-bordered dt-responsive nowrap table-hover table-condensed" cellspacing="0" style="background:white!important">
         <thead class="text-center bg-primary">
           <tr>
-            <th>Numero de control</th>
-            <th>Alumno</th>
+            <th class="text-center" width="7%">Numero de control</th>
+            <th>Nombre Alumno</th>
             <th class="text-center" width="7%">Acta</th>
-            <th class="text-center" width="7%">Certificado</th>
+            <!--th class="text-center" width="7%">Certificado</th-->
             <th class="text-center" width="7%">Curp</th>
             <th class="text-center" width="7%">Cert. medico</th>
             <th class="text-center" width="7%">Acciones</th>
             <th class="text-center" width="7%">Información</th>
-            <th class="text-center" width="7%">S. Social</th>
+            <!--th class="text-center" width="7%">S. Social</th>
             <th class="text-center" width="7%">P. Profes</th>
-            <th class="text-center" width="7%">Titulación</th>
+            <th class="text-center" width="7%">Titulación</th-->
           </tr>
         </thead>
       </table>

@@ -33,6 +33,7 @@ class Modelo_Alumnos extends CI_Model { // INICIO DEL MODELO
             $this->db->join("detalles","alumnos.numero_control = detalles.alumno");
             $this->db->join("grado_grupo","detalles.carrera = grado_grupo.id_grado_grupo");
            $this->db->where_in('alumnos.estatus', ['0','1']);
+           $this->db->where("alumnos.estatus_alumno_activo", 1);
             $this->db->where("detalles.carrera", $carrera);
             //$this->db->where("detalles.cuatrimestre", $cuatrimestre);
             //$this->db->where("detalles.opcion", $opcion);
@@ -87,8 +88,7 @@ public function insert_entry($data)
 
 
 
-          public function ficha_alumno($id)
-          {
+          public function ficha_alumno($id){
             $this->db->select(
              "alumnos.numero_control as numero_control,
              alumnos.nombres as nombres,
@@ -102,21 +102,18 @@ public function insert_entry($data)
              alumnos.localidad as localidad,
              alumnos.municipio_localidad as municipio_localidad,
              alumnos.estado_localidad as estado_localidad,
-             alumnos.estado_civil as estado_civil,
              alumnos.sexo as sexo,
              alumnos.institucion as institucion,
-             alumnos.tipo_escuela_nivel_medio_superior as tipo_escuela_nivel_medio_superior,
              alumnos.telefono as telefono,
              alumnos.email as email,
              alumnos.facebook as facebook,
              alumnos.twitter as twitter,
              alumnos.instagram as instagram,
-             carrera.carrera_descripcion as carrera_descripcion,
-             opciones.descripcion as descripcion");
+             concat(grado_grupo.nombre,' - ',grado_grupo.descripcion) AS grado");
               $this->db->from("alumnos");
               $this->db->join("detalles","alumnos.numero_control = detalles.alumno");
-              $this->db->join("carrera","detalles.carrera = carrera.id_carrera");
-              $this->db->join("opciones","detalles.opcion = opciones.id_opcion");
+              $this->db->join("grado_grupo","detalles.carrera = grado_grupo.id_grado_grupo");
+              //$this->db->join("opciones","detalles.opcion = opciones.id_opcion");
               $this->db->where('alumnos.numero_control', $id);
 
               $query = $this->db->get();

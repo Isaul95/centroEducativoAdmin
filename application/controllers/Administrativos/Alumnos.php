@@ -295,9 +295,9 @@ class Alumnos extends CI_Controller {
 			$this->form_validation->set_rules('localidad', 'localidad', 'required');
 			$this->form_validation->set_rules('municipio_localidad', 'estado_localidad', 'required');
 			$this->form_validation->set_rules('estado_localidad', 'estado_localidad', 'required');
-			$this->form_validation->set_rules('estado_civil', 'estado_civil', 'required');
+			//$this->form_validation->set_rules('estado_civil', 'estado_civil', 'required');
 			$this->form_validation->set_rules('sexo', 'sexo', 'required');
-			$this->form_validation->set_rules('tipo_escuela_nivel_medio_superior', 'tipo_escuela_nivel_medio_superior', 'required');
+			//$this->form_validation->set_rules('tipo_escuela_nivel_medio_superior', 'tipo_escuela_nivel_medio_superior', 'required');
 			$this->form_validation->set_rules('institucion', 'institucion', 'required');
 			$this->form_validation->set_rules('email', 'email', 'required');
 			$this->form_validation->set_rules('telefono', 'telefono', 'required');
@@ -331,7 +331,8 @@ class Alumnos extends CI_Controller {
 			$ajax_data['acta_nacimiento'] = $binario; // Documento pdf
 			$ajax_data['nombre_acta'] = $file_name; // name file
 		   }
-		   ///////////////////CERTIFICADO
+		   
+		   /* ///////////////////CERTIFICADO
 		   if (isset($_FILES["certificado_bachillerato"]["name"])) {
 			$config['upload_path'] = "./assets/template/dist/img/uploads";
 			$config['allowed_types'] = 'gif|jpg|png|pdf';
@@ -352,9 +353,8 @@ class Alumnos extends CI_Controller {
 			fclose($fp_certi);
 			$ajax_data['certificado_bachillerato'] = $binario_certi; // Documento pdf
 			$ajax_data['nombre_certificado_bachillerato'] = $file_name_certi;//$this->upload->data('file_name_certi'); // name file
+		   }*/
 
-
-		   }
 			//CURP
 			if (isset($_FILES["curp"]["name"])) {
 				$config['upload_path'] = "./assets/template/dist/img/uploads";
@@ -415,9 +415,9 @@ class Alumnos extends CI_Controller {
 			$ajax_data['localidad'] = $this ->input->post('localidad');
 			$ajax_data['municipio_localidad'] = $this ->input->post('municipio_localidad');
 			$ajax_data['estado_localidad'] = $this ->input->post('estado_localidad');
-			$ajax_data['estado_civil'] = $this ->input->post('estado_civil');
+			//$ajax_data['estado_civil'] = $this ->input->post('estado_civil');
 			$ajax_data['sexo'] = $this ->input->post('sexo');
-			$ajax_data['tipo_escuela_nivel_medio_superior'] = $this ->input->post('tipo_escuela_nivel_medio_superior');
+			//$ajax_data['tipo_escuela_nivel_medio_superior'] = $this ->input->post('tipo_escuela_nivel_medio_superior');
 			$ajax_data['institucion'] = $this ->input->post('institucion');
 			$ajax_data['email'] = $this ->input->post('email');
 			$ajax_data['telefono'] = $this ->input->post('telefono');
