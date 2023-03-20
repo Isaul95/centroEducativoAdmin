@@ -2,6 +2,13 @@ $(document).ready(function(){
     llenarTablaProfesores(); // SEINICIALIZA LA FUNCTIO DE LA CARGA DEL LISTADO DE LA TABLA
     habilitar_deshabilitar();
     llenar_combo_grado_grupo('#combogrado_grupo');
+    llenar_combo_grado_grupo('#grados_grupos_profesores');
+    $("#grados_grupos_profesores").change(function () {
+        $("#tbl_profesores").DataTable().destroy();
+        llenarTablaProfesores($("#grados_grupos_profesores").val());
+         //$("#combo_opciones_alumnos_admin").val(),
+         //$("#combo_semestres_alumnos_admin").val());
+    });
   }); // FIN DE LA FUNCION PRINCIPAL
 
 
@@ -279,12 +286,16 @@ $(document).on("click", "#update_profesor", function (e) {
 /* -------------------------------------------------------------------------- */
 /*                                llenarllenarTablaProfesores                 */
 /* -------------------------------------------------------------------------- */
-function llenarTablaProfesores() {
+function llenarTablaProfesores(id) {
     // debugger; select concat(nombres,concat(' ',concat(apellido_paterno,concat(' ',apellido_materno)))) as nombre_completo from alumnos
+    var idGrado =id
     $.ajax({
-        type: "get",
+        type: "post",
         url: base_url+'Administrativos/Profesores/verprofesor',
         dataType: "json",
+        data: {
+            idGrado: idGrado,
+        },
         success: function(response) {
             var i = "1";
             $("#tbl_profesores").DataTable({

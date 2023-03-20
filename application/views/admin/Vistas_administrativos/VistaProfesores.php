@@ -1,4 +1,10 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
     <div class="content-wrapper colorfondo"> <!-- STAR ALL CONTENT -->
             <!-- Content Header (Page header) -->
       <!-- <section class="content-header">
@@ -21,14 +27,28 @@
 <!-- AKI EMPIEZA LOMMIOO LO NUEVO -->
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 mt-5">
-      <h1 class="text-center">
-      <strong><font color="#D34787">Profesores</font></strong>
-      </h1>
-      <hr style="background-color: black; color: black; height: 1px;">
-    </div>
-  </div>
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <h1 class="text-center">
+          <strong><font color="#D34787">Profesores</font></strong>
+          </h1>
+          <hr style="background-color: black; color: black; height: 1px;">
+        </div>
+      </div>
+
+      <div class="row">
+  <div class="col-10 col-sm-12">
+                  <div class="row">
+                    <div class="col-4 col-sm-8">
+                      <label for="">Seleccione grado y grupo: </label>
+                    <select background-color="red" id="grados_grupos_profesores" class="form-control"><option value="" selected>Seleccione una opción</option></select>
+                    </div>
+                  </div> <!--END OF SECOND ROW-->
+    </div><!--class="col-10 col-sm-12"-->
+  </div> <!--END OF FIRST ROW-->
+                  <br>
+
+
   <div class="row">
     <div class="col-md-12">
       <div class="row">
@@ -40,7 +60,7 @@
               <?php endif;?>
           </div>
       </div>
-<hr> <!-- Le da una linea sombreada para ver la divicion -->
+       <hr> <!-- Le da una linea sombreada para ver la divicion -->
 
       <!-- Modal Agregar nueuvo registro -->
       <div class="modal fade" id="modaladdprofesor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,7 +225,7 @@
                 <div class="row">
                   <div class="col-md-12">
             <form id="formeditprofesor">
-<div class="row">
+              <div class="row">
                     <input type="hidden" id="id_profesores_update">
               <div class="col-sm-12">
                 <label for="">Datos personales</label>
@@ -333,7 +353,7 @@
     </div>
   </div>
 <!--VER FICHA COMPLETA DEL PROFESOR-->
-<div class="modal fade" id="modalviewprofesor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="modalviewprofesor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
           <div class="modal-header bg-primary text-center">
@@ -466,9 +486,7 @@
       </div>
 
 
-    </div>
-  </div>
-  <div class="row my-4">
+      <div class="row my-4">
     <div class="col-md-12 mx-auto">
 
       <!-- <table class="table table-borderless" id="tbl_regPagos" style="width:100%"> -->
@@ -498,7 +516,8 @@
     </div>
   </div>
 
-</div>
+    </div>
+
 
 
 <!-- AKI TERMIAN LO MIO LO NUEVO QUE AGREGUE -->
@@ -526,3 +545,5 @@
 
 
     </div> <!-- /END ALL CONTENT -->
+    </body>
+</html>

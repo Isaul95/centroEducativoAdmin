@@ -218,8 +218,13 @@ class Profesores extends CI_Controller {
 
 	public function verprofesor()
 	{
-		$posts = $this->Modelo_Profesores->obtenerprofesores();
+		if ($this->input->is_ajax_request()) {
+			$idGrado = $this->input->post('idGrado');
+		$posts = $this->Modelo_Profesores->obtenerprofesores($idGrado);
 		echo json_encode($posts);
+	}else {
+		echo "No se permite este acceso directo...!!!";
+	}
 	}
 
 

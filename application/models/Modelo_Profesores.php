@@ -15,14 +15,15 @@ class Modelo_Profesores extends CI_Model { // INICIO DEL MODELO
             return $query->result();
         }
 
-    public function obtenerprofesores(){
+    public function obtenerprofesores($idGrado){
       $this->db->select("p.id_profesores, p.nombres, p.edad, p.sexo , p.direccion, p.ciudad_radicando,p.nacionalidad,
       p.telefono_celular, p.correo, p.estado_civil, p.nivel_de_estudios, p.titulado, p.cedula, p.ocupacion,
       p.tipo_de_trabajo,p.universidad_procedente, p.experiencia_docente, p.trabajos_anteriores, p.nombre_archivo,
       p.horario_asignado");
       $this->db->from("profesores p");
       //$this->db->join("calificaciones c","c.profesor = p.id_profesores");
-      $this->db->group_by('p.id_profesores');
+      $this->db->where('p.grado_grupo', $idGrado);
+      //$this->db->group_by('p.id_profesores');
       $resultados = $this->db->get();
       return $resultados->result();
     }
