@@ -160,3 +160,6 @@ $('#btn_RegistroPago').DataTable( {
 
 <!-- =====  recepcion DE OFICIOS DE TITULACION, servicios social y practicas para vista ADMIN  ====  -->
 <script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/VerProcesosFinalesAdmin.js"></script>
+
+<!-- =====  datos de la escuela  ====  -->
+<script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/DatosEscuela.js"></script>

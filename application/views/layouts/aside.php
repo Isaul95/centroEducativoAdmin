@@ -97,65 +97,42 @@
 <?php if($user==1):?>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fas fa-balance-scale"></i> <span>Administrativos</span>
+                            <i class="fas fa-balance-scale"></i> <span>Administración</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
 
-                            <li><a href="<?php echo base_url();?>Administrativos/PeriodoEscolar">
-                                <i class="far fa-dot-circle"></i> Periodo Escolar</a>
-                            </li>
-                          <li><a href="<?php echo base_url();?>Administrativos/Carreras">
-                            <i class="far fa-dot-circle"></i> Carreras</a></li>
                           <li><a href="<?php echo base_url();?>Administrativos/GradosGrupos">
-                            <i class="far fa-dot-circle"></i> Grado y grupo</a></li>
+                            <i class="far fa-dot-circle"></i> Grado y grupos</a></li>
 
                           <li><a href="<?php echo base_url();?>Administrativos/Profesores">
                             <i class="far fa-dot-circle"></i> Maestros </a></li>
-                            <li><a href="<?php echo base_url();?>Administrativos/HacerHorarioProfesor">
-                            <i class="far fa-dot-circle"></i> Horario profesor </a></li>
-
-                            <li><a href="<?php echo base_url();?>Administrativos/Horarioalumno">
-                            <i class="far fa-dot-circle"></i> Horario alumno </a></li>
-
-                          <li><a href="<?php echo base_url();?>Administrativos/Materias">
-                                <i class="far fa-dot-circle"></i> Materias </a></li>
 
                           <li><a href="<?php echo base_url();?>Administrativos/Alumnos">
                                 <i class="far fa-dot-circle"></i> Alumnos </a></li>
-
-                          <li><a href="<?php echo base_url();?>Administrativos/DocumentosAlumnos">
-                                <i class="far fa-dot-circle"></i> Documentacion Alumnos</a></li>
-
-                          <li><a href="<?php echo base_url();?>Administrativos/Calificaciones">
-                              <i class="far fa-dot-circle"></i> Calificaciones</a></li>
-
-                          <li><a href="<?php echo base_url();?>Administrativos/VerProcesosFinales">
-                                <i class="far fa-dot-circle"></i> Oficios de Terminación </a></li>
-
                         </ul>
                     </li>
 <?php endif;?>
+
+
 <?php if($user==1):?>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fas fa-balance-scale"></i> <span>Finanzas</span>
+                            <i class="fas fa-school"></i> <span>Datos Generales</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-
-                          <li><a href="<?php echo base_url();?>Finanzas/HabilitarAlumnos">
-                             <i class="far fa-dot-circle"></i> Habilitar alumnos</a>
-                         </li>
-
-
+                          <li><a href="<?php echo base_url();?>Administrativos/DatosEscuela">
+                              <i class="far fa-dot-circle"></i> Escuela</a></li>
                         </ul>
                     </li>
 <?php endif;?>
+
+
 <?php if($user==3):?>
                     <li class="treeview">
                         <a href="#">
