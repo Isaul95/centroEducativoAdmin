@@ -163,3 +163,6 @@ $('#btn_RegistroPago').DataTable( {
 
 <!-- =====  datos de la escuela  ====  -->
 <script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/DatosEscuela.js"></script>
+
+<!-- =====  Reportes alumnos y maestros  ====  -->
+<script src="<?php echo base_url();?>assets/template/dist/js/js-cesvi/Administrativos/ReportesEscuela.js"></script>
