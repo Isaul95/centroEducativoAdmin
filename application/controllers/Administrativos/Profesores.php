@@ -47,6 +47,10 @@ class Profesores extends CI_Controller {
 				$this->form_validation->set_rules('experiencia_docente', 'experiencia_profesor', 'required');
 				$this->form_validation->set_rules('trabajos_anteriores', 'trabajosprevios_profesor', 'required');
 				$this->form_validation->set_rules('grado_grupo', 'grado_grupo', 'required');
+				$this->form_validation->set_rules('fecha_sep', 'fecha_sep', 'required');
+				$this->form_validation->set_rules('fecha_ct', 'fecha_ct', 'required');
+				$this->form_validation->set_rules('rfc', 'rfc', 'required');
+				$this->form_validation->set_rules('funcion', 'funcion', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$data = array('res' => "error", 'message' => validation_errors());
@@ -93,6 +97,10 @@ class Profesores extends CI_Controller {
 				$ajax_data['experiencia_docente'] = $this ->input->post('experiencia_docente');
 				$ajax_data['trabajos_anteriores'] = $this ->input->post('trabajos_anteriores');
 				$ajax_data['grado_grupo'] = $this ->input->post('grado_grupo');
+				$ajax_data['fecha_sep'] = $this ->input->post('fecha_sep');
+				$ajax_data['fecha_ct'] = $this ->input->post('fecha_ct');
+				$ajax_data['rfc'] = $this ->input->post('rfc');
+				$ajax_data['funcion'] = $this ->input->post('funcion');
 				$ajax_data['horario_asignado'] = 0;
 
 
@@ -148,6 +156,8 @@ class Profesores extends CI_Controller {
 			$this->form_validation->set_rules('experiencia_docente', 'experiencia_profesor', 'required');
 			$this->form_validation->set_rules('trabajos_anteriores', 'trabajosprevios_profesor', 'required');
 			$this->form_validation->set_rules('grado_grupo', 'grado_grupo', 'required');
+			$this->form_validation->set_rules('rfc', 'rfc', 'required');
+			$this->form_validation->set_rules('funcion', 'funcion', 'required');
 			if ($this->form_validation->run() == FALSE) {
 				$data = array('res' => "error", 'message' => validation_errors());
 			} else {
@@ -198,6 +208,8 @@ class Profesores extends CI_Controller {
 					$ajax_data['experiencia_docente'] = $this ->input->post('experiencia_docente');
 					$ajax_data['trabajos_anteriores'] = $this ->input->post('trabajos_anteriores');
 					$ajax_data['grado_grupo'] = $this ->input->post('grado_grupo');
+					$ajax_data['rfc'] = $this ->input->post('rfc');
+					$ajax_data['funcion'] = $this ->input->post('funcion');
 
 
 					if ($this->Modelo_Profesores->update_entry($id_profesores, $ajax_data)) {

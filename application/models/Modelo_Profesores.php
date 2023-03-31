@@ -113,8 +113,8 @@ public function insert_entry($data)
           public function getProfesorInfo($id_profesores)
           {
           $this->db->select("p.id_profesores as id_profesores, p.nombres as nombres, p.edad as edad, p.sexo as sexo, p.direccion as direccion, p.ciudad_radicando as ciudad_radicando,p.nacionalidad as nacionalidad,
-          p.telefono_celular as telefono_celular, p.correo as correo, g.nombre as nombre,p.estado_civil as estado_civil, p.nivel_de_estudios as nivel_de_estudios, p.titulado as titulado, p.cedula as cedula, p.ocupacion as ocupacion,
-          p.tipo_de_trabajo as tipo_de_trabajo,p.universidad_procedente as universidad_procedente, p.experiencia_docente as experiencia_docente, p.trabajos_anteriores as trabajos_anteriores");
+          p.telefono_celular as telefono_celular, p.correo as correo, g.nombre as nombre, p.fecha_sep as fecha_sep, p.fecha_ct as fecha_ct, p.estado_civil as estado_civil, p.nivel_de_estudios as nivel_de_estudios, p.titulado as titulado, p.cedula as cedula, p.ocupacion as ocupacion,
+          p.tipo_de_trabajo as tipo_de_trabajo,p.universidad_procedente as universidad_procedente, p.experiencia_docente as experiencia_docente, p.trabajos_anteriores as trabajos_anteriores, p.rfc as rfc, p.funcion as funcion");
           $this->db->from("profesores p");
           $this->db->join("grado_grupo g","g.id_grado_grupo = p.grado_grupo");
           $this->db->where('p.id_profesores', $id_profesores);
@@ -126,7 +126,8 @@ public function insert_entry($data)
           public function single_entry($id_profesores)
           {
             $this->db->select('id_profesores, nombres, edad, sexo, direccion,ciudad_radicando,nacionalidad,telefono_celular,
-            correo,grado_grupo,estado_civil,nivel_de_estudios,titulado,cedula,ocupacion,tipo_de_trabajo,universidad_procedente,experiencia_docente,trabajos_anteriores');
+            correo,grado_grupo,estado_civil,nivel_de_estudios,titulado,cedula,ocupacion,tipo_de_trabajo,universidad_procedente,
+            experiencia_docente,trabajos_anteriores,rfc,funcion');
           $this->db->from('profesores');
               $this->db->where('id_profesores', $id_profesores);
               $query = $this->db->get();

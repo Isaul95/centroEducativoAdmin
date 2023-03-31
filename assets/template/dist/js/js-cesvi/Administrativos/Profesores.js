@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    date_picker_profesores();
     llenarTablaProfesores(); // SEINICIALIZA LA FUNCTIO DE LA CARGA DEL LISTADO DE LA TABLA
     habilitar_deshabilitar();
     llenar_combo_grado_grupo('#combogrado_grupo');
@@ -69,11 +70,17 @@ $(document).on("click", "#btnaddprofesor", function(e) {
         var trabajosprevios_profesor = $("#trabajosprevios_profesor").val();
         var img = $("#archivo_profesor")[0].files[0]; // this is file
         var grado_grupo = $("#combogrado_grupo").val();
+        var fecha_sep = $("#datepicker_sep_profesor").val();
+        var fecha_ct = $("#datepicker_ct_profesor").val();
+        var rfc = $("#rfc_profesor").val();
+        var funcion = $("#funcion_profesor").val();
+
 
     if (nombre_profesor == "" || edad_profesor == "" || sexo_profesor == "" || direccion_profesor == "" || ciudad_profesor == ""||
         nacionalidad_profesor == "" ||  telefono_profesor == "" || email_profesor == "" || estadocivil_profesor == ""||
         niveldeestudios_profesor == "" || titulado_profesor == "" || cedula_profesor == "" || ocupacion_profesor == "" || tipodetrabajo_profesor == ""||
-        universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == "" || grado_grupo == "" ) { // || img.name == ""
+        universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == "" 
+        || grado_grupo == "" || fecha_sep == "" || fecha_ct == "" || rfc == ""|| funcion == ""  ) { // || img.name == ""
         alert("Debe llenar todos los campos vacios...!");
     } else {
         var fd = new FormData();
@@ -97,6 +104,10 @@ $(document).on("click", "#btnaddprofesor", function(e) {
         fd.append("experiencia_docente", experiencia_profesor);
         fd.append("trabajos_anteriores", trabajosprevios_profesor);
         fd.append("grado_grupo", grado_grupo);
+        fd.append("fecha_sep", fecha_sep);
+        fd.append("fecha_ct", fecha_ct);
+        fd.append("rfc", rfc);
+        fd.append("funcion", funcion);
 
         if ($("#archivo_profesor")[0].files.length > 0) {
               fd.append("nombre_archivo", img); //Obt principalmente el name file
@@ -153,12 +164,16 @@ $(document).on("click", "#view_profe", function (e) {
             $("#niveldeestudios_profesor_view").val(data.post.nivel_de_estudios);
             $("#titulado_profesor_view").val(data.post.titulado);
             $("#cedula_profesor_view").val(data.post.cedula);
-            $("#ocupacion_profesor_view").val(data.post.ocupacion);
-            $("#tipodetrabajo_profesor_view").val(data.post.tipo_de_trabajo);
+            /*$("#ocupacion_profesor_view").val(data.post.ocupacion);
+            $("#tipodetrabajo_profesor_view").val(data.post.tipo_de_trabajo);*/
+            $("#sep_profesor_view").val(data.post.fecha_sep);
+            $("#ct_profesor_view").val(data.post.fecha_ct);
             $("#universidadprocedente_profesor_view").val(data.post.universidad_procedente);
             $("#experiencia_profesor_view").val(data.post.experiencia_docente);
             $("#trabajosprevios_profesor_view").val(data.post.trabajos_anteriores);
             $("#grado_grupo_view").val(data.post.nombre);
+            $("#rfc_profesor_view").val(data.post.rfc);
+            $("#funcion_profesor_view").val(data.post.funcion);
         },
     });
 });
@@ -195,6 +210,8 @@ $(document).on("click", "#edit_profe", function (e) {
             $("#universidadprocedente_profesor_update").val(data.post.universidad_procedente);
             $("#experiencia_profesor_update").val(data.post.experiencia_docente);
             $("#trabajosprevios_profesor_update").val(data.post.trabajos_anteriores);
+            $("#rfc_profesor_update").val(data.post.rfc);
+            $("#funcion_profesor_update").val(data.post.funcion);
             llenar_combo_grado_grupo('#combogrado_grupo_update',data.post.grado_grupo);
         },
     });
@@ -222,13 +239,16 @@ $(document).on("click", "#update_profesor", function (e) {
    var experiencia_profesor = $("#experiencia_profesor_update").val();
    var trabajosprevios_profesor = $("#trabajosprevios_profesor_update").val();
    var combogrado_grupo_update = $("#combogrado_grupo_update").val();
+   var rfc_profesor_update = $("#rfc_profesor_update").val();
+   var funcion_profesor_update = $("#funcion_profesor_update").val();
    // var archivo_profesor_update = $("#archivo_profesor_update")[0].files[0]; // this is file
     var edit_img = $("#edit_img")[0].files[0]; // this is file
 
     if (nombre_profesor == "" || edad_profesor == "" || sexo_profesor == "" || direccion_profesor == "" || ciudad_profesor == ""||
    nacionalidad_profesor == "" ||  telefono_profesor == "" || email_profesor == "" || estadocivil_profesor == ""||
    niveldeestudios_profesor == "" || titulado_profesor == "" || cedula_profesor == "" || ocupacion_profesor == "" || tipodetrabajo_profesor == ""||
-   universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == ""|| combogrado_grupo_update == "" ) {  // || img.name == ""
+   universidadprocedente_profesor == "" || experiencia_profesor == "" || trabajosprevios_profesor == ""
+   || combogrado_grupo_update == ""  || rfc_profesor_update == ""  || funcion_profesor_update == "" ) {  // || img.name == ""
         alert("Debe llenar todos los campos vacios...!");
     } else {
 
@@ -254,6 +274,8 @@ $(document).on("click", "#update_profesor", function (e) {
         fd.append("experiencia_docente", experiencia_profesor);
         fd.append("trabajos_anteriores", trabajosprevios_profesor);
         fd.append("grado_grupo", combogrado_grupo_update);
+        fd.append("rfc", rfc_profesor_update);
+        fd.append("funcion", funcion_profesor_update);
         
 
         if ($("#edit_img")[0].files.length > 0) {
@@ -567,12 +589,16 @@ $("#estadocivil_profesor_view").prop('disabled', true);
 $("#niveldeestudios_profesor_view").prop('disabled', true);
 $("#titulado_profesor_view").prop('disabled', true);
 $("#cedula_profesor_view").prop('disabled', true);
-$("#ocupacion_profesor_view").prop('disabled', true);
-$("#tipodetrabajo_profesor_view").prop('disabled', true);
+/*$("#ocupacion_profesor_view").prop('disabled', true);
+$("#tipodetrabajo_profesor_view").prop('disabled', true);*/
+$("#sep_profesor_view").prop('disabled', true);
+$("#ct_profesor_view").prop('disabled', true);
 $("#universidadprocedente_profesor_view").prop('disabled', true);
 $("#experiencia_profesor_view").prop('disabled', true);
 $("#trabajosprevios_profesor_view").prop('disabled', true);
 $("#grado_grupo_view").prop('disabled', true);
+$("#rfc_profesor_view").prop('disabled', true);
+$("#funcion_profesor_view").prop('disabled', true);
     }
 
     function llenar_combo_grado_grupo(selectInput, iSelected=-1) {
@@ -595,4 +621,26 @@ $("#grado_grupo_view").prop('disabled', true);
                 });
             },
         });
+    }
+
+
+    function date_picker_profesores() {
+        $("#datepicker_sep_profesor,#datepicker_ct_profesor").datepicker({
+            closeText: 'Cerrar',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié;', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'yy/mm/dd',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        });
+        $.datepicker.setDefaults($.datepicker.regional['es']);
     }
