@@ -6,25 +6,11 @@
 </head>
 <body>
     <div class="content-wrapper colorfondo"> <!-- STAR ALL CONTENT -->
-            <!-- Content Header (Page header) -->
-      <!-- <section class="content-header">
-        <h1>
-              <center><strong><font color="#D34787">Lista de los pagos realizados ISAUL ==></font></strong></center>
-              <center><small><font color="#2F4D97" face="Comic Sans MS,arial,verdana">Menu cesvi</font></small></center>
-        </h1>
-        </section> -->
-
-
-
             <!-- Main content -->
             <section class="content">
                 <!-- Default box -->
                 <div class="box box-solid colorfondo">
                     <div class="box-body">
-
-
-
-<!-- AKI EMPIEZA LOMMIOO LO NUEVO -->
 
 <div class="container">
       <div class="row">
@@ -43,9 +29,9 @@
                       <label for="">Seleccione grado y grupo: </label>
                     <select background-color="red" id="grados_grupos_profesores" class="form-control"><option value="" selected>Seleccione una opción</option></select>
                     </div>
-                  </div> <!--END OF SECOND ROW-->
-    </div><!--class="col-10 col-sm-12"-->
-  </div> <!--END OF FIRST ROW-->
+                  </div>
+    </div>
+  </div>
                   <br>
 
 
@@ -153,24 +139,15 @@
                     <input type="text" class="form-control" id="cedula_profesor" placeholder="Cedula">
                     </div>
                   </div>
-                  <!--<div class="row">
-                    <div class="col-8 col-sm-6">
-                    <label for="">Ocupación</label>
-                    <input type="text" class="form-control" id="ocupacion_profesor" placeholder="Ocupación">
-                    </div>
-                    <div class="col-4 col-sm-6">
-                    <label for="">Tipo de trabajo</label>
-                    <input type="text" class="form-control" id="tipodetrabajo_profesor" placeholder="Tipo de trabajo">
-                    </div>
-                  </div>-->
+
                   <div class="row">
                   <br>
                     <div class="col-8 col-sm-6">
-                    <label for="">SEP</label>
+                    <label for="">Fecha ingreso SEP:</label>
                     <input type="text" id="datepicker_sep_profesor"/>
                      </div>
                      <div class="col-8 col-sm-6">
-                    <label for="">CT</label>
+                    <label for="">Fecha ingreso CT:</label>
                     <input type="text" id="datepicker_ct_profesor"/>
                      </div>
                   </div>

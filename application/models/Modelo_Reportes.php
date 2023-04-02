@@ -18,17 +18,6 @@ class Modelo_Reportes extends CI_Model { // INICIO DEL MODELO
   }
 
 
-/*
-
-SELECT d.nombre, d.codigo, d.turno, concat(al.nombres,' ',al.apellido_paterno,' ',al.apellido_materno) as nombre_completo, detalles.id_detalle, gr.nombre as nombre_grado, al.curp_texto, al.telefono
-  FROM datos_escuela d, alumnos al
-  inner join detalles on al.numero_control = detalles.alumno
-  inner join grado_grupo gr on detalles.carrera = gr.id_grado_grupo
-  where al.estatus_alumno_activo = 1 and al.estatus in (0,1) and detalles.carrera = 7;
-
-  */
-
-
   public function datos_escuela(){
     $this->db->select("d.nombre, d.codigo, d.turno");
     $this->db->from("datos_escuela d");
@@ -50,9 +39,6 @@ SELECT d.nombre, d.codigo, d.turno, concat(al.nombres,' ',al.apellido_paterno,' 
   }
 
 
-
-
-
   // Maestros
 
   public function lista_maestros_reporte($grado){
@@ -70,6 +56,12 @@ SELECT d.nombre, d.codigo, d.turno, concat(al.nombres,' ',al.apellido_paterno,' 
             $this->db->where("pr.grado_grupo", $grado);
     $resultados = $this->db->get();
     return $resultados->result();
+  }
+
+
+
+  public function capturaPromedioConstancias($data){
+    return $this->db->update('detalles', $data, array('id_detalle' => $data['id_detalle']));
   }
 
 

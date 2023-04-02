@@ -72,7 +72,7 @@
                           <li><a href="<?php echo base_url();?>Administrativos/ReportesAlumnos">
                               <i class="far fa-dot-circle"></i> Alumnos</a></li>
 
-                              <li><a href="<?php echo base_url();?>Administrativos/ReportesMaestros">
+                              <li><a href="<?php echo base_url();?>Administrativos/Constancias">
                               <i class="far fa-dot-circle"></i> Constancia Estudios</a></li>
 
                               <li><a href="<?php echo base_url();?>Administrativos/ReportesMaestros">

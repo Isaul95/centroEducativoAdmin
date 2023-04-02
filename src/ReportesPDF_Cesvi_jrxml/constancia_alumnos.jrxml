@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="280d7cc0-a3d2-440b-b300-6e52992688ce">
+	<property name="ireport.zoom" value="1.3636363636363653"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="386"/>
+	<subDataset name="dataset1" uuid="bee3ea94-a0a3-4da5-b1d0-c105fdc88390"/>
+	<parameter name="id_detalle" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT d.nombre, d.codigo, d.turno, concat(al.nombres,' ',al.apellido_paterno,' ',al.apellido_materno) as nombre_completo, detalles.id_detalle, detalles.promedio_alumno AS promedio, detalles.fecha_letra, detalles.fecha_constancia,
+substring(gr.grado_y_grupo,1,2) AS grado,
+substring(gr.grado_y_grupo,3,3) AS grupo
+FROM datos_escuela d, alumnos al
+inner join detalles on al.numero_control = detalles.alumno
+inner join grado_grupo gr on detalles.carrera = gr.id_grado_grupo
+where detalles.id_detalle  = '$P{id_detalle}']]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="turno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_completo" class="java.lang.String"/>
+	<field name="id_detalle" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="promedio" class="java.lang.String"/>
+	<field name="fecha_letra" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_constancia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grado" class="java.lang.String"/>
+	<field name="grupo" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement mode="Opaque" x="152" y="252" width="268" height="249" uuid="dcdb956b-717f-4cef-bfc5-0e66553d2a34"/>
+				<imageExpression><![CDATA["src/fondo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="147" y="0" width="253" height="10" uuid="62756486-b692-4a21-8170-7e85aa9e1508"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GOBIERNO DEL ESTADO LIBRE Y SOBERANO DE GUERRERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="9" width="223" height="10" uuid="9a09ce98-1429-442c-93aa-ac1d81caa277"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECRETARIA DE EDUCACIÓN GUERRERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="18" width="223" height="10" uuid="854ab13a-8bdf-43df-8744-5f7a97ff6508"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBSECRETARIA DE EDUCACIÓN BÁSICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="27" width="223" height="10" uuid="9d2c0060-91e8-4493-9dd3-19d044dfa24a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN GENERAL DE EDUCACIÓN PRIMARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="36" width="223" height="10" uuid="882fccc3-00eb-4238-8bcd-7a3245fe2756"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE PRIMARIA FORMAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="54" width="223" height="10" uuid="c0849b6d-9003-48f8-9dc5-dc3bd9bc39c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESCUELA PRIMARIA “GENERAL AMBROSIO FIGUEROA”]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="63" width="223" height="10" uuid="83be17d0-24ce-48f8-a9db-caffe80a84b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TURNO MATUTINO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="72" width="272" height="10" uuid="6c55f9f0-c362-4004-8782-cce446807eb8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CALLE. ÁLVAREZ  156.   COL. JUAN N. ÁLVAREZ    IGUALA, GRO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="81" width="253" height="10" uuid="5f8e0edc-75aa-408c-a941-eb118be64ad5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C.C.T. 12DPR0647Q    ZONA ESCOLAR No.137    SECTOR No.14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="93" width="100" height="10" uuid="510edc3b-2e7c-48d5-b842-5ce50e4dbca2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXPEDIENTE: 2022 - 2023]]></text>
+			</staticText>
+			<image>
+				<reportElement x="11" y="10" width="111" height="34" uuid="3a6a7908-628d-4cc8-867d-3a904b8c0d57"/>
+				<imageExpression><![CDATA["src/gro.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="449" y="0" width="106" height="86" uuid="f8df2a67-c867-4bf8-bee9-d2330a46f591"/>
+				<imageExpression><![CDATA["src/amb.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="342" y="19" width="174" height="13" uuid="f7fe238c-3819-4b86-94d5-6bc10fd0339d"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASUNTO: CONSTANCIA DE ESTUDIOS.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="35" width="137" height="13" uuid="fefa99bc-3a05-4183-8150-d09b24d7b573"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Iguala de la Independencia Gro;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="61" width="136" height="15" uuid="051d176c-022f-4a09-b207-d5c6bd11b533"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A QUIEN CORRESPONDA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="416" y="35" width="127" height="13" uuid="af2b9483-7b93-47bc-8279-a045b3319782"/>
+				<textFieldExpression><![CDATA[$F{fecha_constancia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement x="55" y="12" width="416" height="13" uuid="1f6565e4-5138-43c2-91d4-03776e5d49f0"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[      La que suscribe PROFRA. DELFINA RODRIGUEZ CALDERON directora de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="25" width="394" height="27" uuid="27403ae3-870f-431b-9535-ae08490299fb"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[la Escuela Primaria "General Ambrosio Figueroa", con domicilio oficial en Álvarez No. 156 Col. Juan N. Álvarez de esta ciudad de Iguala Gro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="73" width="179" height="22" uuid="47f4029c-392d-47e2-aa70-43d89a8bf068"/>
+				<textElement>
+					<font fontName="Lucida Fax" size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HACE     CONSTAR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="156" splitType="Stretch">
+			<staticText>
+				<reportElement x="65" y="12" width="132" height="13" uuid="55f78c23-0adf-4343-962f-b28e167e7dc7"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[      Que el (a) alumno (a):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="38" width="216" height="15" uuid="4b326ecc-a9ea-49a3-b451-38a1391e2816"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[trimestre del ciclo escolar 2022 – 2023]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="82" width="457" height="27" uuid="bb3fe97b-8b22-41d9-be6d-3a953a731ebf"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[     A petición de la interesada, se le extiende la presente constancia y para tramite de preinscripción a nivel secundaria, en la ciudad de Iguala de la Independencia, del Estado ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="197" y="12" width="203" height="13" uuid="dce1f7d6-b2ca-48d6-9c3e-4491226bdab0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_completo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="12" width="74" height="13" uuid="1e4c1c9a-4ca2-49d7-b445-091b9f6595fe"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[está inscrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="64" y="25" width="47" height="13" uuid="97dea8f5-dae6-444d-94ac-19e4e2348bed"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(a) en el]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="25" width="28" height="13" uuid="b8d18834-717c-4ff6-a1a9-66a51e97afdd"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="132" y="25" width="77" height="13" uuid="e62b0261-2424-46f1-b606-8f10c62b6280"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[grado, grupo “]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="202" y="25" width="13" height="13" uuid="f1406d83-b62a-4d5d-9ca6-600117415c62"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grupo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="25" width="152" height="13" uuid="74a01660-2438-4bbb-b406-cf426a3dab70"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[” obteniendo un promedio de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="25" width="107" height="13" uuid="bfa60d41-cd14-4770-b072-70d61686fb26"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[durante el primer]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="25" width="19" height="13" uuid="2d73125d-76e5-4d58-bf8b-fe8a805aadee"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="109" width="348" height="13" uuid="8c249068-537d-4094-9d0d-d3397ccc4145"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_letra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="59" y="109" width="93" height="13" uuid="4a48c3a2-f825-4153-a8e0-5d706d744032"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[de Guerrero a los]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="96" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="14" splitType="Stretch">
+			<staticText>
+				<reportElement x="201" y="-91" width="149" height="15" uuid="b97ad6e8-fcf8-4913-8e36-13fd3e1c0418"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENTAMENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="201" y="-77" width="149" height="15" uuid="49d9dd48-d6e9-4420-9ba4-316f0c63674b"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECTORA DE LA ESCUELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="-31" width="247" height="15" uuid="3c20ce32-7051-4afc-a391-980e8f3d0349"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROFRA. DELFINA RODRIGUEZ CALDERON]]></text>
+			</staticText>
+			<line>
+				<reportElement x="172" y="-33" width="214" height="1" uuid="c0661469-af01-4a46-a610-5b45a840da1d"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="11" splitType="Stretch"/>
+	</summary>
+</jasperReport>
