@@ -41,19 +41,19 @@ class Modelo_Reportes extends CI_Model { // INICIO DEL MODELO
 
   // Maestros
 
-  public function lista_maestros_reporte($grado){
+  public function lista_maestros_reporte(){ //$grado
     $this->db->select("pr.nombres As nombre_completo, pr.fecha_sep, pr.fecha_ct, pr.funcion, pr.direccion, pr.correo, pr.telefono_celular, pr.rfc");
             $this->db->from("profesores pr");
-            $this->db->where("pr.grado_grupo", $grado);
+            //$this->db->where("pr.grado_grupo", $grado);
     $resultados = $this->db->get();
     return $resultados->result();
   }
 
-  public function consultarAuxiliarMaestros($grado){
+  public function consultarAuxiliarMaestros(){ //$grado
     $this->db->select(" COUNT(*) As conmaestro, gr.id_grado_grupo");
             $this->db->from("profesores pr");
             $this->db->join("grado_grupo gr","pr.grado_grupo = gr.id_grado_grupo");
-            $this->db->where("pr.grado_grupo", $grado);
+            //$this->db->where("pr.grado_grupo", $grado);
     $resultados = $this->db->get();
     return $resultados->result();
   }

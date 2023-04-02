@@ -28,8 +28,8 @@ class ReportesMaestros extends CI_Controller {
 
 
 	public function contadorMaestros(){
-		$grado = $this->input->post('grado');
-			$posts = $this->Modelo_Reportes->consultarAuxiliarMaestros($grado);
+		//$grado = $this->input->post('grado');
+			$posts = $this->Modelo_Reportes->consultarAuxiliarMaestros();
 			echo json_encode($posts);
 
 	}
@@ -37,7 +37,7 @@ class ReportesMaestros extends CI_Controller {
 
 	public function reportMaestros($id_grado_grupo){
 
-		$datosMaestros = $this->Modelo_Reportes->lista_maestros_reporte($id_grado_grupo);
+		$datosMaestros = $this->Modelo_Reportes->lista_maestros_reporte(); // $id_grado_grupo
 
 			$spreadsheet = new Spreadsheet();
 			$sheet = $spreadsheet->getActiveSheet();
@@ -86,7 +86,7 @@ class ReportesMaestros extends CI_Controller {
 
 		$writer = new Xlsx($spreadsheet);
 
-		 	$filename = 'MAESTROS';
+		 	$filename = 'LISTA DE MAESTROS';
 		 	ob_end_clean();
 		 	header('Content-Type: application/vnd.ms-excel');
 		 	header('Content-Disposition: attachment;filename="'. $filename .'.xlsx"');
@@ -100,7 +100,7 @@ class ReportesMaestros extends CI_Controller {
 
 	public function reportDirectorioMaestros($id_grado_grupo){
 
-		$datosMaestros = $this->Modelo_Reportes->lista_maestros_reporte($id_grado_grupo);
+		$datosMaestros = $this->Modelo_Reportes->lista_maestros_reporte(); // $id_grado_grupo
 
 			$spreadsheet = new Spreadsheet();
 			$sheet = $spreadsheet->getActiveSheet();

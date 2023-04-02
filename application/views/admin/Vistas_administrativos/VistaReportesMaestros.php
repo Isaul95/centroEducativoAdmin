@@ -25,12 +25,12 @@
 
   <div class="row">
   <div class="col-10 col-sm-12">
-                  <div class="row">
+                  <!--div class="row">
                     <div class="col-4 col-sm-8">
                       <label for="">Seleccione grado y grupo: </label>
                     <select background-color="red" id="combo_grado_maestro" class="form-control"><option value="" selected>Seleccione una opción</option></select>
                     </div>
-                  </div>
+                  </div-->
     </div>
   </div>
                   <br>

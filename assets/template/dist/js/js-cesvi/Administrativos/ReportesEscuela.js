@@ -14,10 +14,10 @@ $(document).ready(function () {
         llenarTablaReportAlumnos($("#combo_grado_alumno").val());
     });
 
-    $("#combo_grado_maestro").change(function () {
+    /*$("#combo_grado_maestro").change(function () {
         $("#tbl_reportes_maestros").DataTable().destroy();
         llenarTablaReportMaestros($("#combo_grado_maestro").val());
-    });
+    });*/
 
     $("#combo_constancias").change(function () {
         $("#tbl_reportes_constancias").DataTable().destroy();
@@ -187,15 +187,15 @@ function llenarTablaReportAlumnos(grado) {
 /* -------------------------------------------------------------------------- */
 /*                                llenar tabla maestros               */
 /* -------------------------------------------------------------------------- */
-function llenarTablaReportMaestros(grado) {
+function llenarTablaReportMaestros() {
 
-    var fd = new FormData();
-    fd.append("grado", grado);
+    //var fd = new FormData();
+    //fd.append("grado", grado);
 
     $.ajax({
         type: "post",
         url: base_url + 'Administrativos/ReportesMaestros/contadorMaestros',
-        data: fd,
+        //data: fd,
         processData: false,
         contentType: false,
         dataType: "json",
