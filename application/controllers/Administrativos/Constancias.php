@@ -127,6 +127,8 @@ public function generaConstancia($detalle){ // ,$detalle - numero_control
 		$pdf->Ln(8);
 
 
+		// $pdf->Image('src/fondo.jpg', 60, 110, 85); --> fondo pero no es transparente
+
 		// consulta
 		$DatosConstancia = $this->Modelo_Reportes->datos_alumno_constancia($id_detalle);
 
