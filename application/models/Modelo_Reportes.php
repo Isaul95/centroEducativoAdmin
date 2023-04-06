@@ -59,10 +59,23 @@ class Modelo_Reportes extends CI_Model { // INICIO DEL MODELO
   }
 
 
-
   public function capturaPromedioConstancias($data){
     return $this->db->update('detalles', $data, array('id_detalle' => $data['id_detalle']));
   }
+
+
+  // Consulta para constancia
+  public function datos_alumno_constancia($id_detalle){
+    $this->db->select(" concat(al.nombres,' ',al.apellido_paterno,' ',al.apellido_materno) as nombre_completo, detalles.id_detalle, detalles.promedio_alumno AS promedio, detalles.fecha_letra, detalles.fecha_constancia,
+                        substring(gr.grado_y_grupo,1,2) AS grado, substring(gr.grado_y_grupo,3,3) AS grupo ");
+            $this->db->from("alumnos al");
+            $this->db->join("detalles","al.numero_control = detalles.alumno");
+            $this->db->join("grado_grupo gr","detalles.carrera = gr.id_grado_grupo");
+            $this->db->where("detalles.id_detalle", $id_detalle);
+    $resultados = $this->db->get();
+    return $resultados->result();
+  }
+
 
 
   } // FIN / CIERRE DEL MODELO

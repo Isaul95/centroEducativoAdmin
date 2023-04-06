@@ -290,8 +290,8 @@ function llenarTablaReportConstancias(grado) {
                         var promedio = `${row.promedio_alumno}`;
                         var fecha_letra = `${row.fecha_letra}`;
                           var a;
-                            if(promedio != 0 && fecha_letra != 'null'){
-                               var a = `<a title="Constancia PDF" href="Constancias/generaConstancia/${row.id_detalle}" target="_blank"><i class="far fa-file-pdf fa-2x"></i></a>`;
+                            if((promedio != 0 || promedio != 'null') && fecha_letra != 'null'){
+                               var a = `<a title="Constancia PDF" href="Constancias/generaConstanciaFPDFIsa/${row.id_detalle}" target="_blank"><i class="far fa-file-pdf fa-2x"></i></a>`;
                             }else{
                                 a = 'Debere capturar promedio y fecha';
                             }
