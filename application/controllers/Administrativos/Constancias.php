@@ -86,6 +86,8 @@ public function generaConstancia($detalle){ // ,$detalle - numero_control
 
 		$pdf->SetFont('Arial','B', 10);
 		$pdf->SetY(12);
+		$pdf->SetTextColor(121,117,117); // color de texto marca de agua
+
 	  	$pdf->Cell(0,0, utf8_decode('GOBIERNO DEL ESTADO LIBRE Y SOBERANO DE'),0,0,'C');
 		$pdf->Ln(4); // --> Salto de linea
 		$pdf->Cell(0,0, utf8_decode('GUERRERO'),0,0,'C');
@@ -120,6 +122,7 @@ public function generaConstancia($detalle){ // ,$detalle - numero_control
 
 		$pdf->SetFont('Arial','B', 12);
 		$pdf->SetX(100);
+		$pdf->SetTextColor(0, 0, 0); // color de texto negro
 		$pdf->Cell(0,0, utf8_decode('ASUNTO: CONSTANCIA DE ESTUDIOS.'),0,0,'C');
 		$pdf->Ln(8);
 
@@ -180,6 +183,8 @@ public function generaConstancia($detalle){ // ,$detalle - numero_control
 		$pdf->Cell(185,0, utf8_decode('PROFRA. DELFINA RODRIGUEZ CALDERON'),0,0,'C');
 		$pdf->Ln(12);
 
+		//$pdf->SetX(5);
+		//$pdf->Image('src/foot.jpg', 0, 210, 250);
 
 		$pdf->Output("CONSTANCIA_".$alumno.".pdf", 'I');
 
