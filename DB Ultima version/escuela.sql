@@ -1,20 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 02-04-2023 a las 08:46:22
--- Versión del servidor: 5.6.17
--- Versión de PHP: 5.5.12
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 06-04-2023 a las 06:32:36
+-- Versión del servidor: 8.0.31
+-- Versión de PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `escuela`
@@ -26,6 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `alumnos`
 --
 
+DROP TABLE IF EXISTS `alumnos`;
 CREATE TABLE IF NOT EXISTS `alumnos` (
   `numero_control` varchar(200) NOT NULL DEFAULT '',
   `nombres` varchar(255) DEFAULT NULL,
@@ -49,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `certificado_bachillerato` mediumblob,
   `curp` mediumblob,
   `certificado_medico` mediumblob,
-  `estatus` int(11) DEFAULT NULL,
+  `estatus` int DEFAULT NULL,
   `fecha_registro` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `fecha_inscripcion` varchar(200) DEFAULT NULL,
   `facebook` varchar(200) DEFAULT NULL,
@@ -59,12 +61,12 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `nombre_certificado_medico` varchar(200) DEFAULT NULL,
   `nombre_curp` varchar(200) DEFAULT NULL,
   `nombre_certificado_bachillerato` varchar(200) DEFAULT NULL,
-  `estatus_alumno_activo` int(11) DEFAULT NULL,
+  `estatus_alumno_activo` int DEFAULT NULL,
   `servicio_social` varchar(3) DEFAULT NULL,
   `practicas_prof` varchar(3) DEFAULT NULL,
   `titulacion` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`numero_control`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `alumnos`
@@ -86,12 +88,13 @@ INSERT INTO `alumnos` (`numero_control`, `nombres`, `apellido_paterno`, `apellid
 -- Estructura de tabla para la tabla `datos_escuela`
 --
 
+DROP TABLE IF EXISTS `datos_escuela`;
 CREATE TABLE IF NOT EXISTS `datos_escuela` (
   `nombre` varchar(200) DEFAULT NULL,
   `codigo` varchar(50) DEFAULT NULL,
   `turno` varchar(50) DEFAULT NULL,
-  `zona_escolar` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `zona_escolar` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `datos_escuela`
@@ -106,32 +109,33 @@ INSERT INTO `datos_escuela` (`nombre`, `codigo`, `turno`, `zona_escolar`) VALUES
 -- Estructura de tabla para la tabla `detalles`
 --
 
+DROP TABLE IF EXISTS `detalles`;
 CREATE TABLE IF NOT EXISTS `detalles` (
-  `id_detalle` int(11) NOT NULL AUTO_INCREMENT,
+  `id_detalle` int NOT NULL AUTO_INCREMENT,
   `alumno` varchar(200) DEFAULT NULL,
-  `carrera` int(11) DEFAULT NULL,
+  `carrera` int DEFAULT NULL,
   `fecha_letra` varchar(100) DEFAULT NULL,
   `fecha_constancia` varchar(50) DEFAULT NULL,
-  `promedio_alumno` varchar(20) DEFAULT NULL,
+  `promedio_alumno` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '0',
   PRIMARY KEY (`id_detalle`),
   KEY `alumno` (`alumno`),
   KEY `carrera` (`carrera`),
   KEY `alumno_2` (`alumno`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `detalles`
 --
 
 INSERT INTO `detalles` (`id_detalle`, `alumno`, `carrera`, `fecha_letra`, `fecha_constancia`, `promedio_alumno`) VALUES
-(29, 'IGGD212451', 7, '', NULL, ''),
-(31, 'AACC21242', 7, '', NULL, NULL),
+(29, 'IGGD212451', 7, NULL, NULL, NULL),
+(31, 'AACC21242', 7, NULL, NULL, NULL),
 (32, 'MASC21242', 7, 'dos días del mes de abril del dos mil veintitrés.', '01 de abril de 2023', '8.7'),
-(33, 'LCHC21242', 7, '', NULL, NULL),
+(33, 'LCHC21242', 7, NULL, NULL, NULL),
 (34, 'UCCC21243', 7, 'un dia del mes de abril de dos mil veintitres', '01 de abril de 2023', '6.7'),
 (59, 'IGGD212451', 7, NULL, NULL, NULL),
-(60, 'IHRDG21244', 7, '', NULL, NULL),
-(62, 'RDS20230312', 7, '', NULL, NULL);
+(60, 'IHRDG21244', 7, 'cinco días del mes de abrir del dos mil veintetres', '05 de abril de 2023', '9.8'),
+(62, 'RDS20230312', 7, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,13 +143,14 @@ INSERT INTO `detalles` (`id_detalle`, `alumno`, `carrera`, `fecha_letra`, `fecha
 -- Estructura de tabla para la tabla `grado_grupo`
 --
 
+DROP TABLE IF EXISTS `grado_grupo`;
 CREATE TABLE IF NOT EXISTS `grado_grupo` (
-  `id_grado_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `id_grado_grupo` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
   `grado_y_grupo` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_grado_grupo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `grado_grupo`
@@ -171,12 +176,13 @@ INSERT INTO `grado_grupo` (`id_grado_grupo`, `nombre`, `descripcion`, `grado_y_g
 -- Estructura de tabla para la tabla `menus`
 --
 
+DROP TABLE IF EXISTS `menus`;
 CREATE TABLE IF NOT EXISTS `menus` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `link` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -204,18 +210,19 @@ INSERT INTO `menus` (`id`, `nombre`, `link`) VALUES
 -- Estructura de tabla para la tabla `permisos`
 --
 
+DROP TABLE IF EXISTS `permisos`;
 CREATE TABLE IF NOT EXISTS `permisos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `menu_id` int(11) DEFAULT NULL,
-  `rol_id` int(11) DEFAULT NULL,
-  `read` int(11) DEFAULT NULL,
-  `insert` int(11) DEFAULT NULL,
-  `update` int(11) DEFAULT NULL,
-  `delete` int(11) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `menu_id` int DEFAULT NULL,
+  `rol_id` int DEFAULT NULL,
+  `read` int DEFAULT NULL,
+  `insert` int DEFAULT NULL,
+  `update` int DEFAULT NULL,
+  `delete` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_menus_idx` (`menu_id`),
   KEY `fk_rol_idx` (`rol_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -243,9 +250,10 @@ INSERT INTO `permisos` (`id`, `menu_id`, `rol_id`, `read`, `insert`, `update`, `
 -- Estructura de tabla para la tabla `profesores`
 --
 
+DROP TABLE IF EXISTS `profesores`;
 CREATE TABLE IF NOT EXISTS `profesores` (
-  `id_profesores` int(11) NOT NULL AUTO_INCREMENT,
-  `nombres` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `id_profesores` int NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `nivel_de_estudios` varchar(200) DEFAULT NULL,
   `sexo` varchar(200) DEFAULT NULL,
   `edad` varchar(200) DEFAULT NULL,
@@ -261,18 +269,18 @@ CREATE TABLE IF NOT EXISTS `profesores` (
   `nacionalidad` varchar(200) DEFAULT NULL,
   `telefono_celular` varchar(200) DEFAULT NULL,
   `correo` varchar(200) DEFAULT NULL,
-  `grado_grupo` int(11) NOT NULL,
+  `grado_grupo` int NOT NULL,
   `universidad_procedente` varchar(300) DEFAULT NULL,
   `experiencia_docente` varchar(300) DEFAULT NULL,
   `trabajos_anteriores` varchar(500) DEFAULT NULL,
   `nombre_archivo` varchar(200) DEFAULT NULL,
   `curriculum` mediumblob,
   `fecha_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `horario_asignado` int(11) DEFAULT '0',
+  `horario_asignado` int DEFAULT '0',
   `fecha_sep` varchar(20) DEFAULT NULL,
   `fecha_ct` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_profesores`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `profesores`
@@ -290,13 +298,14 @@ INSERT INTO `profesores` (`id_profesores`, `nombres`, `nivel_de_estudios`, `sexo
 -- Estructura de tabla para la tabla `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -313,21 +322,22 @@ INSERT INTO `roles` (`id`, `nombre`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombres` varchar(100) DEFAULT NULL,
   `apellidos` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `rol_id` int(11) DEFAULT NULL,
+  `rol_id` int DEFAULT NULL,
   `estado_usuario` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_rol_usuarios_idx` (`rol_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -360,6 +370,7 @@ ALTER TABLE `permisos`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fk_rol_usuarios` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
